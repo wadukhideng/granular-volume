@@ -466,7 +466,6 @@ class VolumeControlService : Service() {
         // Progress Bar Visual (0-100)
         val percent = if (coordinator.isMuted) 0 else (((dB + 30f) / 30f * 100f).coerceIn(0f, 100f)).toInt()
         largeView.setProgressBar(R.id.notif_progress, 100, percent, false)
-        largeView.setInt(R.id.notif_progress, "setProgressTintList", android.content.res.ColorStateList.valueOf(color))
 
         // Teks Tombol Mute
         largeView.setTextViewText(R.id.btn_mute, if (coordinator.isMuted) "Suara" else "Bisukan")
