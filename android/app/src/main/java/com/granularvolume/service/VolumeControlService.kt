@@ -482,16 +482,20 @@ class VolumeControlService : Service() {
             this, 1, Intent(this, com.granularvolume.MainActivity::class.java), PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
 
         val display = lockDisplay()
-        val level = if (dB == 0f) getString(R.string.gv_notif_on) else "%.0f dB".format(dB)
-        val dbText = when (display) {
-            FullRangeCoordinator.LockDisplay.LOCKED -> getString(R.string.gv_notif_locked)
-            FullRangeCoordinator.LockDisplay.HELD -> getString(R.string.gv_notif_held, level)
-            FullRangeCoordinator.LockDisplay.OPEN -> level
+        val s = coordinator.uiState()
+        
+        // Tampilkan Persen kalau di zona atas, tampilkan dB kalau di zona senyap
+        val levelText = when {
+            s.muted -> "Volume dibisukan"
+            s.zoneQuiet -> "%.0f dB".format(s.quietDb)
+            else -> "${s.percent}%"
         }
+
         val text = when {
             ControlLive.effectTaken -> getString(R.string.gv_effect_taken)
-            coordinator.isMuted -> "Volume dibisukan"
-            else -> dbText
+            display == FullRangeCoordinator.LockDisplay.LOCKED -> getString(R.string.gv_notif_locked)
+            display == FullRangeCoordinator.LockDisplay.HELD -> getString(R.string.gv_notif_held, levelText)
+            else -> levelText
         }
         
         // Warna dinamis: Merah (Mute), Amber (Locked), Biru (Normal)
