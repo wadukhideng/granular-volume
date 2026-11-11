@@ -467,8 +467,11 @@ class VolumeControlService : Service() {
         val percent = if (coordinator.isMuted) 0 else (((dB + 30f) / 30f * 100f).coerceIn(0f, 100f)).toInt()
         largeView.setProgressBar(R.id.notif_progress, 100, percent, false)
 
-        // Teks Tombol Mute
-        largeView.setTextViewText(R.id.btn_mute, if (coordinator.isMuted) "Suara" else "Bisukan")
+        // Ganti Ikon Mute secara dinamis
+        largeView.setImageViewResource(
+            R.id.btn_mute,
+            if (coordinator.isMuted) R.drawable.ic_volume_up else R.drawable.ic_volume_off
+        )
 
         // Pasang aksi klik ke tombol
         largeView.setOnClickPendingIntent(R.id.btn_down, downIntent)

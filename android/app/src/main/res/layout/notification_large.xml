@@ -22,71 +22,66 @@
         android:layout_height="wrap_content"
         android:textColor="#B3FFFFFF"
         android:textSize="13sp"
-        android:layout_marginTop="4dp" />
+        android:layout_marginTop="2dp" />
 
     <ProgressBar
         android:id="@+id/notif_progress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-        android:layout_height="4dp"
+        android:layout_height="3dp"
         android:layout_marginTop="12dp"
         android:progressBackgroundTint="#33FFFFFF"
+        android:progressTint="#FFFFFF"
         android:max="100" />
 
+    <!-- Barisan Ikon (Spotify Style) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="16dp"
-        android:weightSum="4">
+        android:layout_marginTop="12dp"
+        android:weightSum="4"
+        android:gravity="center">
 
-        <TextView
+        <ImageView
             android:id="@+id/btn_down"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_weight="1"
-            android:layout_marginEnd="4dp"
-            android:background="@drawable/bg_notif_button"
-            android:gravity="center"
-            android:text="− Pelan"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp" />
+            android:background="@drawable/bg_notif_icon"
+            android:scaleType="center"
+            android:src="@drawable/ic_chevron_down"
+            android:tint="#FFFFFF" />
 
-        <TextView
+        <ImageView
             android:id="@+id/btn_mute"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_weight="1"
-            android:layout_marginHorizontal="4dp"
-            android:background="@drawable/bg_notif_button"
-            android:gravity="center"
-            android:text="Bisukan"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp" />
+            android:background="@drawable/bg_notif_icon"
+            android:scaleType="center"
+            android:src="@drawable/ic_volume_off"
+            android:tint="#FFFFFF" />
 
-        <TextView
+        <ImageView
             android:id="@+id/btn_up"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_weight="1"
-            android:layout_marginHorizontal="4dp"
-            android:background="@drawable/bg_notif_button"
-            android:gravity="center"
-            android:text="+ Keras"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp" />
+            android:background="@drawable/bg_notif_icon"
+            android:scaleType="center"
+            android:src="@drawable/ic_chevron_up"
+            android:tint="#FFFFFF" />
 
-        <TextView
+        <ImageView
             android:id="@+id/btn_stop"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_weight="1"
-            android:layout_marginStart="4dp"
-            android:background="@drawable/bg_notif_button"
-            android:gravity="center"
-            android:text="✕ Stop"
-            android:textColor="#FF6B6B"
-            android:textSize="12sp" />
+            android:background="@drawable/bg_notif_icon"
+            android:scaleType="center"
+            android:src="@drawable/ic_close"
+            android:tint="#FF6B6B" />
 
     </LinearLayout>
 </LinearLayout>
