@@ -8,7 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,15 +22,15 @@ jobs:
         working-directory: android
         run: chmod +x ./gradlew
 
-      - name: Build F-Droid debug APK
+      - name: Build F-Droid RELEASE APK
         working-directory: android
-        run: ./gradlew assembleFdroidDebug --stacktrace --no-daemon
+        run: ./gradlew assembleFdroidRelease --stacktrace --no-daemon
 
       - name: Upload APK artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: granular-volume-fdroid-debug
-          path: android/app/build/outputs/apk/fdroid/debug/*.apk
+          name: granular-volume-fdroid-release
+          path: android/app/build/outputs/apk/fdroid/release/*.apk
           retention-days: 30
           if-no-files-found: warn
