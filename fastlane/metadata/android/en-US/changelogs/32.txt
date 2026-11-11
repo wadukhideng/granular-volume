@@ -1,0 +1,5 @@
+Seven days of everything, then one payment, once. New installs get the complete app free for seven days, then it asks for the Full Range Key, a one-time purchase on Google Play. Nothing renews. Already using the app? Nothing changes for you, permanently. The F-Droid build stays free and complete.
+
+On a regular phone call the quiet steps show dimmed: Android runs no audio effects on call audio.
+
+Accessibility: the dial speaks its level, and text and buttons meet the contrast standard.

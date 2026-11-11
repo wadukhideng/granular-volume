@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gv_main_scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen_gradient"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingLeft="28dp"
+        android:paddingRight="28dp"
+        android:paddingTop="28dp"
+        android:paddingBottom="32dp">
+
+        <!-- Hero glyph -->
+        <FrameLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/bg_hero_circle">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_hero_glyph"
+                android:contentDescription="@string/gv_app_glyph" />
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="26sp"
+            android:textColor="@color/gv_text_primary"
+            android:textStyle="bold"
+            android:letterSpacing="-0.01"
+            android:layout_marginTop="14dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/gv_subtitle"
+            android:textSize="14sp"
+            android:textColor="@color/gv_text_secondary"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.3"
+            android:layout_marginTop="8dp" />
+
+        <!--
+            Trial orientation. A statement, not a countdown and not an offer: it says what
+            the deal is while the user is already standing here setting permissions up, so
+            nobody can reach day eight and find a lock they were never told about. Hidden
+            for everyone it does not describe (grandfathered, buyer, F-Droid, and the last
+            three days, where the countdown card says something more urgent instead).
+        -->
+        <TextView
+            android:id="@+id/tv_trial_orientation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textSize="13sp"
+            android:textColor="@color/gv_text_muted"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.3"
+            android:layout_marginTop="14dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp" />
+
+        <!-- Status card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:layout_marginTop="20dp">
+
+            <!-- Overlay permission row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="11dp"
+                android:paddingBottom="11dp">
+
+                <FrameLayout
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:background="@drawable/bg_icon_chip">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_overlay_perm"
+                        android:tint="@color/gv_text_secondary"
+                        android:contentDescription="@null" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginLeft="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gv_perm_overlay_title"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/gv_text_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gv_perm_overlay_desc"
+                        android:textSize="12sp"
+                        android:textColor="@color/gv_text_muted"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_overlay_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_state_pill"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:text="@string/gv_state_needed"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/gv_warning"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gv_surface_stroke" />
+
+            <!-- Audio permission row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="11dp"
+                android:paddingBottom="11dp">
+
+                <FrameLayout
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:background="@drawable/bg_icon_chip">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_volume_up"
+                        android:tint="@color/gv_text_secondary"
+                        android:contentDescription="@null" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginLeft="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gv_perm_audio_title"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/gv_text_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gv_perm_audio_desc"
+                        android:textSize="12sp"
+                        android:textColor="@color/gv_text_muted"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_audio_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_state_pill"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:text="@string/gv_state_needed"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/gv_warning"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gv_surface_stroke" />
+
+            <!-- Notifications row (1.7.0). Optional, and said so: the control works without it.
+                 The system asks for it after "Start", with no explanation of its own, so the
+                 reason is given here, before the question. -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="11dp"
+                android:paddingBottom="11dp">
+
+                <FrameLayout
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:background="@drawable/bg_icon_chip">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_info"
+                        android:tint="@color/gv_text_secondary"
+                        android:contentDescription="@null" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginLeft="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gv_perm_notif_title"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/gv_text_primary" />
+
+                    <TextView
+                        android:id="@+id/tv_notif_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gv_perm_notif_desc"
+                        android:textSize="12sp"
+                        android:textColor="@color/gv_text_muted"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_notif_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_state_pill"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:text="@string/gv_state_off"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/gv_text_secondary"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Consent gate (clickwrap). Sits ABOVE the permission CTA and gates it, so the
+             user actively accepts before anything is granted. No new screen, by design.
+             Hidden once the current Terms version has been accepted. -->
+        <!-- Grandfather tip-jar card (1.5.0): play flavor, grandfathered users,
+             shown until dismissed once, then never again. -->
+        <!-- 1.7.0: the consent block now sits ABOVE the card. With the card first, a user who
+             had to accept the Terms while a card was showing found "Agree and continue" below
+             the fold (harness A9, 2026-10-03). Agreement is the gate; it comes first. -->
+        <LinearLayout
+            android:id="@+id/gv_consent_block"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:padding="14dp"
+            android:background="@drawable/bg_card">
+
+            <TextView
+                android:id="@+id/tv_consent_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/gv_consent_text"
+                android:textSize="12sp"
+                android:lineSpacingExtra="3dp"
+                android:textColor="@color/gv_text_secondary" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/tv_link_terms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gv_terms_link"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:padding="4dp"
+                    android:textColor="@color/gv_accent_text" />
+
+                <TextView
+                    android:id="@+id/tv_link_privacy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gv_privacy_link"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:padding="4dp"
+                    android:layout_marginStart="16dp"
+                    android:textColor="@color/gv_accent_text" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_accept_terms"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/gv_accept_continue"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:textColor="@color/gv_btn_primary_text"
+                android:background="@drawable/bg_btn_primary"
+                android:stateListAnimator="@null"
+                android:elevation="0dp"
+                android:maxLines="1"
+                android:layout_marginTop="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/gv_tipjar_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:padding="16dp"
+            android:layout_marginTop="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_card_title"
+                android:text="@string/gv_tipjar_title"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/gv_text_primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_card_body"
+                android:text="@string/gv_tipjar_body"
+                android:textSize="12sp"
+                android:textColor="@color/gv_text_secondary"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/btn_tipjar_dismiss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gv_tipjar_dismiss"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/gv_text_muted"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:id="@+id/btn_tipjar_support"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gv_tipjar_support"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/gv_accent_text"
+                    android:padding="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp" />
+            </LinearLayout>
+
+            <!-- 1.7.0: a locked main screen had a buy button and no way to say "I already paid". -->
+            <TextView
+                android:id="@+id/btn_card_restore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:minHeight="48dp"
+                android:gravity="center_vertical"
+                android:text="@string/gv_purchase_restore_link"
+                android:textSize="13sp"
+                android:textColor="@color/gv_accent_text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <!-- 1.7.2: the user went to Android's list and came back with the switch still off.
+             A toast said so for two seconds and was gone. This stays, shows again what to
+             look for, and offers a second try and the help page. -->
+        <LinearLayout
+            android:id="@+id/gv_overlay_retry_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card_attention"
+            android:padding="16dp"
+            android:layout_marginTop="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_retry_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/gv_retry_title"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@color/gv_text_primary"
+                android:accessibilityHeading="true" />
+
+            <TextView
+                android:id="@+id/tv_retry_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/gv_retry_body"
+                android:textSize="15sp"
+                android:lineSpacingMultiplier="1.25"
+                android:textColor="@color/gv_text_secondary"
+                android:layout_marginTop="6dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="12dp"
+                android:importantForAccessibility="noHideDescendants">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/ic_launcher" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:text="@string/app_name"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/gv_text_primary" />
+
+                <ImageView
+                    android:layout_width="44dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/ic_guide_switch_on" />
+            </LinearLayout>
+
+            <!-- The second try lives inside the card, so the card and its button are read
+                 and reached together, whatever the height of the screen. -->
+            <Button
+                android:id="@+id/btn_retry_open"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="@string/gv_retry_open"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:textColor="@color/gv_btn_primary_text"
+                android:background="@drawable/bg_btn_primary"
+                android:stateListAnimator="@null"
+                android:elevation="0dp"
+                android:maxLines="1"
+                android:layout_marginTop="14dp" />
+
+            <TextView
+                android:id="@+id/btn_retry_help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:gravity="center_vertical"
+                android:text="@string/gv_retry_help"
+                android:textSize="15sp"
+                android:textColor="@color/gv_accent_text"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- Contextual hint -->
+        <TextView
+            android:id="@+id/tv_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/gv_hint_grant_first"
+            android:textSize="13sp"
+            android:textColor="@color/gv_text_secondary"
+            android:gravity="center"
+            android:layout_marginTop="18dp" />
+
+        <!-- Primary CTA -->
+        <Button
+            android:id="@+id/btn_grant_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/gv_grant_overlay"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:textColor="@color/gv_btn_primary_text"
+            android:background="@drawable/bg_btn_primary"
+            android:stateListAnimator="@null"
+            android:elevation="0dp"
+            android:maxLines="1"
+            android:layout_marginTop="14dp" />
+
+        <!-- The second step. 1.7.0: only ONE of these two buttons is on screen at a time (the
+             one that can be pressed). With the third status row both no longer fitted above
+             the fold, and the one that mattered was the one that fell off. -->
+        <Button
+            android:id="@+id/btn_start_service"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/gv_start_service"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:textColor="@color/gv_btn_secondary_text"
+            android:background="@drawable/bg_btn_secondary"
+            android:stateListAnimator="@null"
+            android:elevation="0dp"
+            android:maxLines="1"
+            android:layout_marginTop="12dp" />
+
+
+        <!-- 1.7.0: shown only while the system may put this app to sleep. The usual reason a
+             control "stops by itself" is the device's battery manager, and nothing said so. -->
+        <TextView
+            android:id="@+id/tv_battery_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/gv_battery_hint"
+            android:textSize="12sp"
+            android:textColor="@color/gv_text_muted"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.3"
+            android:layout_marginTop="18dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:visibility="gone" />
+
+        <!-- Persistent footer. The consent block disappears once accepted, so the
+             licences screen needs a way in that does not. 1.7.0: Help sits beside it. -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:layout_marginTop="6dp">
+
+            <TextView
+                android:id="@+id/tv_link_help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:gravity="center_vertical"
+                android:text="@string/gv_help"
+                android:textSize="12sp"
+                android:textColor="@color/gv_accent_text"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp" />
+
+            <TextView
+                android:id="@+id/tv_link_licenses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:gravity="center_vertical"
+                android:text="@string/gv_open_licenses"
+                android:textSize="12sp"
+                android:textColor="@color/gv_text_muted"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

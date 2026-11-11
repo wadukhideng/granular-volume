@@ -1,0 +1,35 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. NoActionBar — the layout supplies its own title. -->
+    <style name="Theme.GranularVolume" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/gv_accent</item>
+        <item name="colorPrimaryVariant">@color/gv_accent</item>
+        <item name="colorOnPrimary">@color/gv_text_primary</item>
+        <item name="colorSecondary">@color/gv_accent</item>
+        <item name="colorOnSecondary">@color/gv_text_primary</item>
+        <item name="android:windowBackground">@color/gv_background</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/gv_background</item>
+    </style>
+
+
+    <!-- Full-range paywall host (1.5.0): invisible window, Material attributes
+         present so the BottomSheetDialog can resolve its theme overlay. -->
+    <style name="Theme.GranularVolume.Paywall">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <!-- 1.7.4: the info sheet and the paywall. No navigation-bar padding on the sides (it showed
+         the sheet's default background as a strip beside our content in landscape) and the sheet
+         painted in our surface colour, so no other colour can show at any edge. SheetFit centres
+         the sheet inside the safe area instead. -->
+    <style name="ThemeOverlay.GranularVolume.Sheet" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.GranularVolume.Sheet</item>
+    </style>
+    <style name="Widget.GranularVolume.Sheet" parent="Widget.MaterialComponents.BottomSheet.Modal">
+        <item name="backgroundTint">@color/gv_surface</item>
+        <item name="paddingLeftSystemWindowInsets">false</item>
+        <item name="paddingRightSystemWindowInsets">false</item>
+    </style>
+</resources>

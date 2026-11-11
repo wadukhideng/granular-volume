@@ -1,0 +1,3 @@
+Seven days of everything, then one payment, once. New installs get the complete app for seven days, then it asks for the Full Range Key, a one-time purchase on Google Play. No subscription, nothing renews. Already using the app? Nothing changes for you, permanently. Google Play build only; the F-Droid build stays free and complete.
+
+Also: volume keys climb smoothly out of the quiet zone, and on a regular phone call the quiet steps show dimmed, since Android runs no audio effects on call audio.

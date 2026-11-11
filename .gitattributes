@@ -1,0 +1,37 @@
+# Normalize line endings across platforms.
+# Text files are stored with LF in the repo; checkout converts per platform.
+* text=auto
+
+# Shell scripts and the Gradle wrapper MUST stay LF so they run on Linux CI.
+*.sh        text eol=lf
+gradlew     text eol=lf
+
+# Windows batch files stay CRLF.
+*.bat       text eol=crlf
+
+# Treat known binaries as binary (no EOL conversion, no diff noise).
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.webp      binary
+*.ttf       binary
+*.otf       binary
+*.jar       binary
+*.apk       binary
+*.aab       binary
+*.mp4       binary
+*.keystore  binary
+*.jks       binary
+
+# GitHub Linguist language detection.
+# The shipped app is Kotlin (in android/). Everything below is build-time
+# tooling — asset/thumbnail/promo-video generators, the legal-doc builder,
+# CI, and signing scripts — not app code. Exclude it from language stats so
+# the repo's detected language is Kotlin, not Python or Shell (which have more
+# raw bytes than the app itself). Fixes the "Written in Python" mislabel that
+# propagates to third-party listings (e.g. AlternativeTo).
+store-assets/**  linguist-vendored
+video/**         linguist-vendored
+legal/**         linguist-vendored
+*.py             linguist-vendored
+*.sh             linguist-vendored

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 1.7.2: a drawn switch in its ON state, for the guide row. A picture, not a control. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="52dp"
+    android:height="32dp"
+    android:viewportWidth="52"
+    android:viewportHeight="32">
+    <path
+        android:fillColor="#5046E5"
+        android:pathData="M16,0h20a16,16 0,0 1,0 32h-20a16,16 0,0 1,0 -32z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M36,16m-12,0a12,12 0,1 1,24 0a12,12 0,1 1,-24 0" />
+</vector>

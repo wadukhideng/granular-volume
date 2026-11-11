@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alarm Too Loud at the Lowest Volume? Android Fix</title>
+<meta name="description" content="Your alarm's lowest step still jolts you awake. Why alarms sit on a hard volume floor, and how to set a level below it. No root. Ringtones too.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://granularvolume.com/guide/alarm-too-loud-lowest-volume-android.html">
+<meta property="og:url" content="https://granularvolume.com/guide/alarm-too-loud-lowest-volume-android.html">
+<meta property="og:title" content="Alarm Too Loud at the Lowest Volume? Android Fix">
+<meta property="og:image" content="https://granularvolume.com/img/og/guide-alarm-too-loud-lowest-volume-android.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Alarm Too Loud at the Lowest Volume? Android Fix">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://granularvolume.com/img/og/guide-alarm-too-loud-lowest-volume-android.png">
+<meta property="og:locale" content="en_US">
+<meta property="og:description" content="Your alarm's lowest step still jolts you awake. Why alarms sit on a hard volume floor, and how to set a level below it. No root. Ringtones too.">
+<meta property="og:type" content="article">
+<link rel="icon" href="../img/icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Alarm Too Loud at the Lowest Volume? Android Fix",
+  "description": "Your alarm's lowest step still jolts you awake. Why alarms sit on a hard volume floor, and how to set a level below it. No root. Ringtones too.",
+  "image": "https://granularvolume.com/img/og/guide-alarm-too-loud-lowest-volume-android.png",
+  "author": {"@type": "Person", "name": "Rotem Zussman"},
+  "publisher": {"@type": "Organization", "@id": "https://granularvolume.com/#org", "name": "Granular Volume", "url": "https://granularvolume.com/"},
+  "datePublished": "2026-07-30",
+  "dateModified": "2026-10-12",
+  "mainEntityOfPage": "https://granularvolume.com/guide/alarm-too-loud-lowest-volume-android.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Why is my alarm still too loud at the lowest volume setting?","acceptedAnswer":{"@type":"Answer","text":"Because the lowest position on the alarm slider is a real audible floor, not a quiet setting. Android keeps alarms on their own volume stream, and on many devices that stream deliberately refuses to go all the way down to silence so you cannot accidentally sleep through an alarm. Step one on that slider is the quietest level the system will produce, and nothing inside Settings goes underneath it."}},
+    {"@type":"Question","name":"Does Do Not Disturb lower the alarm volume?","acceptedAnswer":{"@type":"Answer","text":"No. Do Not Disturb decides which sounds are allowed through, not how loud they are. Alarms are usually on the allowed list by default, and when an allowed alarm fires it plays at exactly the same level it would have played at otherwise. It is a filter, not a volume control."}},
+    {"@type":"Question","name":"Will a gentle or gradual-wake alarm fix an alarm that is too loud?","acceptedAnswer":{"@type":"Answer","text":"Only for the first few seconds. A gradual-wake alarm starts quiet and ramps up until you dismiss it, so it delays the loud part rather than removing it. If you do not wake in the first moments, it climbs to the same too-loud level as before. It changes the timing of the problem, not the ceiling or the floor."}},
+    {"@type":"Question","name":"Can I lower the alarm volume without lowering media volume at the same time?","acceptedAnswer":{"@type":"Answer","text":"Not with this approach. Quiet Dial is a single global dial that lowers the device's mixed output, so while it is set to a lower step it applies to alarms, ringtones, notifications and media, and app calls on phones that play them through the media output (never regular phone calls) alike. It is not a per-stream or per-app mixer. For an overnight setting that is usually what you want, but it is worth knowing before you install it."}},
+    {"@type":"Question","name":"Is it safe to lower the alarm if I actually need it to wake me?","acceptedAnswer":{"@type":"Answer","text":"Test it before you rely on it. Set the dial where you think you want it, then trigger an alarm yourself and listen from where you sleep, at the distance and with the door position you normally have. The point of the dial is to give you steps between the system floor and silence, and some of those steps are genuinely too quiet to wake a heavy sleeper. Find the one that works for you while you are awake, not on a morning you cannot miss."}},
+    {"@type":"Question","name":"Does it lower ringtone and notification volume too?","acceptedAnswer":{"@type":"Answer","text":"Yes. Ringtones, notification sounds, alarms and media are all affected. Each of those was tested directly by playing the sound and moving the dial down through its steps, and the level drops every time."}},
+    {"@type":"Question","name":"Why can nothing lower my keyboard clicks and UI touch sounds?","acceptedAnswer":{"@type":"Answer","text":"Those particular sounds take a different route through Android. Keyboard taps and interface clicks are played on a dedicated low-latency audio path that deliberately skips audio post-processing, because processing adds delay and instant response is the entire reason that path exists. Any app that lowers volume by attaching an effect to the system output is therefore unable to reach them. This is a boundary in Android itself rather than a missing feature, so treat any app that promises to quiet keyboard clicks with suspicion."}},
+    {"@type":"Question","name":"Does it need root, ADB or a computer?","acceptedAnswer":{"@type":"Answer","text":"No. It uses Android's own audio-effect framework, needs only a display-over-other-apps permission and standard audio permissions, and requires no root, no ADB and no computer."}},
+    {"@type":"Question","name":"Is it free and private?","acceptedAnswer":{"@type":"Answer","text":"Free to install, and the first seven days after you install are the complete app with nothing held back. After that, keeping the control takes one payment, once. Nothing renews and there is no subscription to cancel. No ads, no account, no subscription, and no internet permission at all, so it cannot send data anywhere. Open source under GPL-3.0."}}
+  ]
+}
+</script>
+<style>
+  :root{
+    --bg0:#0a0e1d; --bg1:#121833; --card:#161232; --accent:#5046E5; --accent2:#22d3ee;
+    --txt:#f4f6ff; --muted:#9aa3c7; --line:rgba(255,255,255,.08);
+    --good:#22d3ee; --bad:#ff6b6b; --warn:#f5b942;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Segoe UI",system-ui,sans-serif;color:var(--txt);
+    background:
+      radial-gradient(80% 50% at 75% 0%, #232a55 0%, rgba(35,42,85,0) 60%),
+      linear-gradient(180deg,#121833 0%, #0a0e1d 40%);
+    line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  a{color:var(--accent2);}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:17px;
+    padding:15px 28px;border-radius:14px;text-decoration:none;transition:transform .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:linear-gradient(145deg,var(--accent),#5B52F0);color:#fff;
+    box-shadow:0 14px 40px rgba(108,99,255,.45);}
+  .btn-ghost{border:1px solid var(--line);color:var(--txt);background:rgba(255,255,255,.03);}
+
+  header.top{padding:56px 0 8px;}
+  .crumb{font-size:14px;color:var(--muted);margin-bottom:22px;}
+  .crumb a{color:var(--muted);text-decoration:none;}
+  .crumb a:hover{color:var(--accent2);}
+  .icon{width:76px;height:76px;border-radius:20px;margin-bottom:22px;
+    background:linear-gradient(135deg,#16162B 0%, #4A43C9 100%);
+    box-shadow:0 18px 48px rgba(74,67,201,.5), inset 0 0 0 1px rgba(255,255,255,.06);
+    display:inline-flex;align-items:center;justify-content:center;overflow:hidden;}
+  .icon img{width:100%;height:100%;}
+  h1{font-size:clamp(34px,6vw,52px);font-weight:900;letter-spacing:-.8px;line-height:1.08;margin-bottom:16px;}
+  .dek{color:var(--muted);font-size:19px;max-width:620px;}
+  .meta{color:var(--muted);font-size:14px;margin-top:18px;padding-bottom:36px;border-bottom:1px solid var(--line);}
+
+  .quickfix{background:linear-gradient(145deg, rgba(108,99,255,.16), rgba(34,211,238,.07));
+    border:1px solid rgba(108,99,255,.4);border-radius:18px;padding:24px 28px;margin:28px 0 8px;}
+  .quickfix .kicker{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);margin-bottom:8px;}
+  .quickfix p{color:var(--txt);font-size:16.5px;margin-bottom:0;}
+  .quickfix .setup-note{margin-top:12px;font-size:14px;line-height:1.5;opacity:.85;}
+.cta{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;}
+  .quickfix .btn{padding:12px 22px;font-size:15.5px;}
+
+  article{padding:36px 0;}
+  article h2{font-size:26px;font-weight:800;margin:44px 0 14px;letter-spacing:-.2px;}
+  article h3{font-size:19px;font-weight:700;margin:26px 0 8px;}
+  article p{margin-bottom:16px;font-size:17px;color:#e3e5f7;}
+  article ul, article ol{margin:0 0 16px 22px;font-size:17px;color:#e3e5f7;}
+  article li{margin-bottom:8px;}
+  .lead-p{font-size:18px;color:var(--txt);}
+
+  .toc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 26px;margin:28px 0;}
+  .toc div{font-weight:700;margin-bottom:10px;font-size:14px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;}
+  .toc ol{margin:0 0 0 20px;font-size:15px;}
+  .toc a{text-decoration:none;color:#c9cdf0;}
+  .toc a:hover{color:var(--accent2);}
+
+  .fixcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 26px;margin:18px 0;}
+  .fixcard h3{margin-top:0;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .verdict{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-left:auto;}
+  .v-works{background:rgba(34,211,238,.14);color:var(--good);}
+  .v-partial{background:rgba(245,185,66,.14);color:var(--warn);}
+  .v-doesnt{background:rgba(255,107,107,.14);color:var(--bad);}
+  .fixcard p{color:var(--muted);font-size:15.5px;margin-bottom:0;}
+  .fixcard p + p{margin-top:10px;}
+
+  .warn{background:rgba(245,185,66,.10);border:1px solid rgba(245,185,66,.38);
+    border-radius:16px;padding:22px 26px;margin:26px 0;}
+  .warn .kicker{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--warn);margin-bottom:8px;}
+  .warn p{margin-bottom:0;font-size:16.5px;color:#e3e5f7;}
+
+  .quote{border-left:3px solid var(--accent2);padding:2px 0 2px 18px;margin:20px 0;color:var(--txt);font-style:italic;font-size:16.5px;}
+  .quote cite{display:block;margin-top:8px;font-style:normal;font-size:13px;color:var(--muted);}
+
+  .callout{background:linear-gradient(145deg, rgba(108,99,255,.14), rgba(34,211,238,.08));
+    border:1px solid rgba(108,99,255,.35);border-radius:18px;padding:28px 30px;margin:40px 0;}
+  .callout h2{margin-top:0;}
+  .callout .cta{display:flex;gap:14px;margin-top:20px;flex-wrap:wrap;}
+
+  .faq dt{font-weight:700;font-size:17px;margin-top:20px;}
+  .faq dd{color:var(--muted);margin:8px 0 0;font-size:16px;}
+
+  footer{padding:48px 0 72px;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid var(--line);margin-top:24px;}
+  footer a{color:var(--accent2);text-decoration:none;}
+
+  /* Keyboard accessibility. Nothing here changes the page for mouse users. */
+  .skip-link{position:absolute;left:-9999px;top:0;z-index:999;padding:12px 20px;
+    background:var(--accent2);color:var(--bg0);font-weight:700;text-decoration:none;
+    border-radius:0 0 10px 0;}
+  .skip-link:focus{left:0;}
+  :focus-visible{outline:3px solid var(--accent2);outline-offset:3px;border-radius:4px;}
+  main:focus{outline:none;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{transition:none !important;animation:none !important;}
+  }
+  /*GV-POLISH-NAV*/
+  .gv-nav{position:sticky;top:0;z-index:900;background:rgba(10,14,29,.86);-webkit-backdrop-filter:saturate(140%) blur(10px);
+    backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid rgba(255,255,255,.08);}
+  .gv-nav-in{max-width:1080px;margin:0 auto;padding:0 20px;height:60px;display:flex;align-items:center;gap:20px;}
+  .gv-brand{display:flex;align-items:center;gap:10px;color:#f4f6ff;text-decoration:none;font-weight:800;font-size:17px;margin-right:auto;}
+  .gv-brand img{width:30px;height:30px;border-radius:8px;display:block;}
+  .gv-nav-in>a.gv-link{color:#c7cbec;text-decoration:none;font-size:15px;font-weight:600;padding:8px 4px;}
+  .gv-nav-in>a.gv-link:hover{color:#22d3ee;}
+  .gv-play{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:999px;
+    background:#5046E5;color:#fff !important;text-decoration:none;font-weight:700;font-size:15px;white-space:nowrap;}
+  .gv-play:hover{background:#5B52F0;}
+  @media (max-width:520px){.gv-nav-in{gap:12px;padding:0 14px;}.gv-nav-in>a.gv-link{font-size:14px;padding:8px 2px;}
+    .gv-brand span{display:none;}.gv-play{padding:0 13px;font-size:14px;}}
+  [id]{scroll-margin-top:76px;}
+  @media print{.gv-nav{display:none;}}
+/*GV-POLISH-NAV-END*/
+  /*GV-POLISH-TM*/
+  .gv-tm{display:block;max-width:640px;margin:14px auto 0;font-size:12.5px;line-height:1.5;color:var(--muted,#9aa3c7);}
+/*GV-POLISH-TM-END*/
+</style>
+<script src="/src.js"></script>
+<script data-goatcounter="https://granularvolume.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<style id="gv-a11y-style">
+  /* Accessibility button and panel, self-hosted (a11y.js). No third-party code, no cookies. */
+  .gv-a11y-fab{position:fixed;left:16px;bottom:16px;z-index:1000;width:52px;height:52px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;background:#5046E5;color:#fff;border:2px solid #fff;
+    box-shadow:0 6px 18px rgba(0,0,0,.45);cursor:pointer;padding:0;text-decoration:none;}
+  .gv-a11y-fab svg{width:30px;height:30px;fill:currentColor;}
+  @media (max-width:640px){.gv-a11y-fab{width:44px;height:44px;left:10px;bottom:10px;}.gv-a11y-fab svg{width:25px;height:25px;}.gv-a11y-panel{bottom:64px;}body{padding-bottom:64px;}}
+  .gv-a11y-fab:focus-visible,.gv-a11y-btn:focus-visible,.gv-a11y-link:focus-visible{outline:3px solid #22d3ee;outline-offset:3px;}
+  .gv-a11y-panel{position:fixed;left:16px;bottom:78px;z-index:1000;width:min(300px,calc(100vw - 32px));
+    max-height:calc(100vh - 100px);overflow:auto;background:#161232;color:#f4f6ff;border:1px solid rgba(255,255,255,.35);
+    border-radius:14px;padding:14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font:16px/1.4 "Segoe UI",system-ui,sans-serif;text-align:left;}
+  .gv-a11y-title{font-weight:800;font-size:17px;margin:0 0 10px;}
+  .gv-a11y-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+  .gv-a11y-label{flex:1;}
+  .gv-a11y-value{min-width:46px;text-align:center;}
+  .gv-a11y-btn{display:block;width:100%;min-height:44px;margin:0 0 8px;padding:8px 12px;border-radius:10px;
+    border:1px solid rgba(255,255,255,.35);background:#232a55;color:#f4f6ff;font:inherit;text-align:left;cursor:pointer;}
+  .gv-a11y-step{width:52px;margin:0;text-align:center;font-weight:700;}
+  .gv-a11y-btn[aria-pressed="true"]{background:#5046E5;border-color:#fff;}
+  .gv-a11y-btn[aria-pressed="true"]::after{content:" \2713";}
+  .gv-a11y-btn:disabled{opacity:.45;cursor:default;}
+  .gv-a11y-link{display:block;margin:4px 0 10px;color:#22d3ee;}
+  .gv-a11y-close{margin-bottom:0;}
+  html.gv-hc body,html.gv-hc body *:not(img):not(svg):not(path){background:#000 !important;
+    border-color:#fff !important;text-shadow:none !important;box-shadow:none !important;}
+  html.gv-hc body,html.gv-hc body *{color:#fff !important;}
+  html.gv-hc body a,html.gv-hc body a *{color:#ff0 !important;}
+  html.gv-hc .gv-a11y-btn[aria-pressed="true"]{outline:3px solid #ff0;}
+  html.gv-ul a{text-decoration:underline !important;}
+  html.gv-rf body,html.gv-rf body *{font-family:Arial,Helvetica,sans-serif !important;letter-spacing:.02em;word-spacing:.06em;}
+  @media print{.gv-a11y{display:none !important;}}
+</style>
+<script type="application/ld+json" data-gv="crumbs">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Quiet Dial", "item": "https://granularvolume.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://granularvolume.com/guide/"}, {"@type": "ListItem", "position": 3, "name": "Alarm too loud at the lowest volume?", "item": "https://granularvolume.com/guide/alarm-too-loud-lowest-volume-android.html"}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the main content</a><!--GV-POLISH-NAV--><nav class="gv-nav" aria-label="Site"><div class="gv-nav-in"><a class="gv-brand" href="/" aria-label="Quiet Dial home"><img src="/img/icon-64.webp" width="30" height="30" alt=""><span>Quiet Dial</span></a><a class="gv-link" href="/guide/">Guides</a><a class="gv-link" href="/help.html">Help</a><a class="gv-play" href="https://play.google.com/store/apps/details?id=granularvolume.com&amp;referrer=utm_source%3Dsite%26utm_medium%3Dnav%26utm_campaign%3Dalarm-too-loud-lowest-volume-android" data-goatcounter-click="play-nav-guide-alarm-too-loud-lowest-volume-android"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg>Google Play</a></div></nav><!--GV-POLISH-NAV-END-->
+
+<div class="wrap">
+
+  <header class="top">
+    <div class="crumb"><a href="../">Quiet Dial</a> / <a href="./">Guides</a></div>
+    <div class="icon"><img width="160" height="160" src="../img/icon-160.webp" alt="Quiet Dial icon"></div>
+    <h1>Alarm too loud at the lowest volume?</h1>
+    <p class="dek">The alarm slider is already on step one and it still jolts you out of bed, wakes your partner, or startles the baby. That is not a setting you have missed. The alarm has a floor, and Settings has no way underneath it.</p>
+    <p class="meta">Updated October 12, 2026 &middot; 7 min read</p>
+  </header>
+<main id="main" tabindex="-1">
+
+  <article>
+    <p class="lead-p">There is a particular unpleasantness to being woken by a sound that is louder than it needs to be. You are asleep, defenceless, and then a tone arrives at a level tuned for someone standing in a noisy kitchen. So you go into Settings, drag the alarm slider down to its lowest position, and discover that the lowest position is still far more than you wanted. Then you start hunting for the setting that must exist somewhere. It does not. Here is why, and what actually gets underneath it.</p>
+
+    <div class="quickfix">
+      <div class="kicker">Short on time? Here's the answer</div>
+      <p>Android keeps alarms on their own volume stream, and the bottom of that stream is a real audible level rather than a quiet one. Everything inside Settings works within that range. <strong>Volume Control: Quiet Dial</strong> adds steps below it, by applying negative gain to the system's audio output after Android has already applied its own minimum. It affects alarms, ringtones, notifications and media, and app calls on phones that play them through the media output (never regular phone calls). No root, no ads.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=granularvolume.com&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcta%26utm_campaign%3Dalarm-too-loud-lowest-volume-android" data-goatcounter-click="play-cta-alarm-too-loud-lowest-volume-android-top">Get it on Google Play</a>
+        <a class="btn btn-ghost" href="#fix">How it gets below the floor</a>
+      </div>
+      <p class="setup-note">After you install, open it once and allow it to display over other apps. That is the entire setup. Everything is open for seven days; after that the dial needs one payment, once, inside the app. No subscription.</p>
+    </div>
+
+    <div class="toc">
+      <div>On this page</div>
+      <ol>
+        <li><a href="#why">Why the alarm has a floor you cannot get under</a></li>
+        <li><a href="#dnd">Do Not Disturb and Bedtime mode</a></li>
+        <li><a href="#gentle">Gentle-wake and gradual alarms</a></li>
+        <li><a href="#tone">Choosing a softer alarm tone</a></li>
+        <li><a href="#thirdparty">Third-party alarm apps with their own volume</a></li>
+        <li><a href="#fix">The mechanism that lowers the floor itself</a></li>
+        <li><a href="#ringtones">Ringtones, notifications, and the sounds no app can lower</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+
+    <h2 id="why">Why the alarm has a floor you cannot get under</h2>
+    <p>Android does not have one volume. It has several separate streams, and alarms get their own, kept deliberately apart from media and ringtones so that turning your music down does not quietly disable your morning. That separation is useful. The side effect is that the alarm stream carries its own minimum, and on many devices that minimum is enforced above silence on purpose, so that nobody can accidentally set an alarm to inaudible and sleep through it.</p>
+    <p>So step one on the alarm slider is not "very quiet." It is the quietest sound the system is willing to produce for an alarm, chosen by the manufacturer to be reliably audible across a room. If your bedroom is silent and your phone is on the pillow beside you, that level was calibrated for a situation you are not in.</p>
+    <p>This is the part that makes the search so frustrating: you are looking for a setting that would defeat the safety behaviour the platform is deliberately enforcing. It is not hidden in a submenu. It is not there.</p>
+
+    <h2 id="dnd">Do Not Disturb and Bedtime mode</h2>
+    <div class="fixcard">
+      <h3>Do Not Disturb, Bedtime mode, sleep schedules <span class="verdict v-doesnt">Filters sounds, does not lower them</span></h3>
+      <p>Do Not Disturb answers the question "which sounds are allowed through right now." It does not answer "how loud should they be." Alarms sit on the allowed list by default, for obvious reasons, and an allowed alarm plays at exactly the level it would have played at with Do Not Disturb switched off.</p>
+      <p>Bedtime mode and similar sleep schedules bundle Do Not Disturb with screen dimming and greyscale. Useful for winding down, and none of it touches the alarm's output level.</p>
+    </div>
+
+    <h2 id="gentle">Gentle-wake and gradual alarms</h2>
+    <div class="fixcard">
+      <h3>Gradually increasing volume <span class="verdict v-partial">Delays the problem, does not remove it</span></h3>
+      <p>A gradual-wake alarm starts quiet and climbs until you dismiss it. If you happen to surface in the first few seconds, you get the gentle version and never hear the rest. If you do not, and plenty of people do not, it keeps climbing to the same level that was too loud before.</p>
+      <p>It is a genuinely good feature and worth leaving on. It just changes when the loud part arrives rather than how loud it gets, so it is not an answer to "the minimum is too loud."</p>
+    </div>
+
+    <h2 id="tone">Choosing a softer alarm tone</h2>
+    <div class="fixcard">
+      <h3>Swapping the alarm sound <span class="verdict v-partial">Helps with harshness, not with level</span></h3>
+      <p>Some alarm tones really are more jarring than others. A tone with less high-frequency content, a slower attack and no sudden onset will feel gentler at the same measured level, so this is worth doing if what bothers you is the sharpness of the sound.</p>
+      <p>But it is a change of character, not of level. A soft harp at the alarm stream's minimum is still played at the alarm stream's minimum. If your complaint is about loudness rather than harshness, you will run out of gentler tones before you run out of loudness.</p>
+    </div>
+
+    <h2 id="thirdparty">Third-party alarm apps with their own volume slider</h2>
+    <div class="fixcard">
+      <h3>Alarm clock apps with in-app volume <span class="verdict v-partial">Sometimes helps, often hits the same floor</span></h3>
+      <p>Some alarm apps expose their own volume control, which can genuinely give you finer positions than the system slider offers. It is worth trying, and for some people it is enough.</p>
+      <p>The limitation is that an app's own slider still hands its audio to the same system stream, so at the bottom of its scale it tends to arrive at the same floor the system enforces. You get more positions on the way down, not a position below the end. If you have tried this and the quietest setting is still too much, that is the reason.</p>
+    </div>
+
+    <h2 id="fix">The mechanism that lowers the floor itself</h2>
+    <div class="fixcard">
+      <h3>A volume cut applied after the system's own minimum <span class="verdict v-works">Actually works</span></h3>
+      <p>Every option above works inside the range Android exposes. To get below the floor, something has to reduce the level <em>after</em> Android has already decided what its minimum is.</p>
+      <p><a href="../">Quiet Dial</a> does that. It attaches an audio effect, Android's own DynamicsProcessing, to the system's global output mix and applies negative gain there, in 5 dB steps down to 30 dB below the hardware floor, from a small floating dial you can park at the edge of the screen. Because it sits on the mixed output rather than on one app, it reaches the alarm stream along with ringtones, notifications and media.</p>
+      <p>Each of those was checked the same way: play the sound, move the dial down through its steps, listen. The level drops every time. No root, no ADB, no computer, and no internet permission in the app at all.</p>
+    </div>
+
+    <div class="warn">
+      <div class="kicker">One honest warning, please read it</div>
+      <p>If you depend on this alarm to get up, test your setting while you are awake. Trigger an alarm, walk to where you actually sleep, and check that you can still hear it with the door where you normally leave it. The dial gives you real steps between the system floor and silence, and the lower ones are quiet enough to sleep through. Find the step that works for you on an afternoon, not on a morning that matters.</p>
+    </div>
+
+    <h2 id="ringtones">Ringtones, notifications, and the sounds no app can lower</h2>
+    <p>If the alarm is too loud at its minimum, the same is usually true of the neighbouring sounds, and for the same reason. Ringtones and notification tones sit on their own streams with their own enforced floors, which is why a phone that rings at an uncomfortable level in a quiet office has no setting to fix it either. Those two are covered by the same dial, tested the same way.</p>
+    <p>There are two exceptions. Regular phone calls are one, covered in the <a href="call-volume-too-loud-android.html">call guide</a>. The other is worth being straight about because it comes up constantly and nobody answers it honestly.</p>
+    <div class="fixcard">
+      <h3>Keyboard clicks and interface touch sounds <span class="verdict v-doesnt">Cannot be reached, by anyone</span></h3>
+      <p>Keyboard taps and UI click sounds travel a different route through Android. They are played on a dedicated low-latency path built so that a tap makes a sound immediately, and that path deliberately skips audio post-processing, because processing costs time and instant response is the whole point of it.</p>
+      <p>The practical consequence: any app that lowers volume by attaching an effect to the system output, which is how this is normally done without root, structurally cannot touch those sounds. This one is not a missing feature or a bug to be fixed in a later version. It is a boundary in Android's audio architecture. If an app claims it can quiet your keyboard clicks, be sceptical. In the meantime, turning keyboard sounds off entirely in your keyboard's own settings is the only real option.</p>
+    </div>
+
+    <div class="callout">
+      <h2>Get under the alarm's floor</h2>
+      <p>Six steps below the system minimum, 5 dB each, on alarms, ringtones, notifications and media, and app calls on phones that play them through the media output (never regular phone calls), and since 1.4.0 the same slider also covers the normal range above the minimum. A floating dial, about three taps from opening the app. Open source, no ads, no tracking, no account, and no internet permission at all.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=granularvolume.com&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcta%26utm_campaign%3Dalarm-too-loud-lowest-volume-android" data-goatcounter-click="play-cta-alarm-too-loud-lowest-volume-android-bottom">Get it on Google Play</a>
+        <a class="btn btn-ghost" href="lower-android-volume-below-minimum.html">The full below-minimum guide</a>
+      </div>
+      <p class="setup-note">After you install, open it once and allow it to display over other apps. That is the entire setup. Everything is open for seven days; after that the dial needs one payment, once, inside the app. No subscription.</p>
+    </div>
+
+    <p>Where people use it most: <a href="../use-cases/tinnitus-sensitive-hearing.html">sensitive hearing</a>, <a href="../use-cases/quiet-rooms-libraries.html">quiet rooms and libraries</a>.</p>
+
+    <h2 id="faq">FAQ</h2>
+    <dl class="faq">
+      <dt>Why is my alarm still too loud at the lowest volume setting?</dt>
+      <dd>Because the lowest position on the alarm slider is a real audible floor, not a quiet setting. Android keeps alarms on their own volume stream, and on many devices that stream deliberately refuses to go all the way down to silence so you cannot accidentally sleep through an alarm. Step one is the quietest level the system will produce, and nothing inside Settings goes underneath it.</dd>
+      <dt>Does Do Not Disturb lower the alarm volume?</dt>
+      <dd>No. Do Not Disturb decides which sounds are allowed through, not how loud they are. Alarms are usually allowed by default, and an allowed alarm plays at exactly the level it would have played at otherwise. It is a filter, not a volume control.</dd>
+      <dt>Will a gentle or gradual-wake alarm fix an alarm that is too loud?</dt>
+      <dd>Only for the first few seconds. A gradual-wake alarm starts quiet and ramps up until you dismiss it, so it delays the loud part rather than removing it. If you do not wake early, it climbs to the same level as before.</dd>
+      <dt>Can I lower the alarm volume without lowering media volume at the same time?</dt>
+      <dd>Not with this approach. Quiet Dial is a single global dial that lowers the device's mixed output, so while it is set low it applies to alarms, ringtones, notifications and media, and app calls on phones that play them through the media output (never regular phone calls) alike. It is not a per-stream or per-app mixer. For an overnight setting that is usually what you want, but it is worth knowing first.</dd>
+      <dt>Is it safe to lower the alarm if I actually need it to wake me?</dt>
+      <dd>Test it before you rely on it. Set the dial, trigger an alarm yourself, and listen from where you sleep at your normal distance. Some of the lower steps are genuinely quiet enough to sleep through, so find the one that works while you are awake rather than on a morning you cannot miss.</dd>
+      <dt>Does it lower ringtone and notification volume too?</dt>
+      <dd>Yes. Ringtones, notification sounds, alarms and media are all affected. Each was tested directly by playing the sound and moving the dial down through its steps, and the level drops every time.</dd>
+      <dt>Why can nothing lower my keyboard clicks and UI touch sounds?</dt>
+      <dd>Those sounds take a different route through Android, on a low-latency path that deliberately skips audio post-processing because delay is the one thing it exists to avoid. Any app that lowers volume by attaching an effect to the system output therefore cannot reach them. It is a boundary in Android itself, not a missing feature, so be sceptical of any app that promises otherwise.</dd>
+      <dt>Does it need root, ADB or a computer?</dt>
+      <dd>No. It uses Android's own audio-effect framework, needs only a display-over-other-apps permission and standard audio permissions, and requires no root, ADB or computer.</dd>
+      <dt>Is it free and private?</dt>
+      <dd>Free to install, and the first seven days after you install are the complete app with nothing held back. After that, keeping the control takes one payment, once. Nothing renews and there is no subscription to cancel. No ads, no account, no subscription, and no internet permission at all, so it cannot send data anywhere. Open source under GPL-3.0.</dd>
+    </dl>
+  </article>
+
+</main>
+</div>
+<footer>
+  <div class="wrap">
+    Part of <a href="../">Quiet Dial</a> by Granular Volume, open source under the
+    <a href="https://github.com/Rzuss/granular-volume/blob/main/LICENSE">GNU GPL-3.0</a>.
+    <a href="https://rzuss.github.io/granular-volume-privacy/">Privacy Policy</a> &middot;
+    <a href="https://rzuss.github.io/granular-volume-privacy/terms-of-use.html">Terms of Use</a> &middot; <a href="https://rzuss.github.io/granular-volume-privacy/terms-of-use.html#refunds">Refunds</a> &middot; <a href="https://rzuss.github.io/granular-volume-privacy/#controller">Legal notice / Impressum</a> &middot;
+    <a href="../help.html">Help</a> · <a href="../accessibility.html">Accessibility</a>.
+    <br>
+    See also:
+    <a href="lower-android-volume-below-minimum.html">every method for going below the minimum, ranked</a> ·
+    <a href="tried-everything-volume-still-too-loud-android.html">why the usual fixes did not work</a> ·
+    <a href="samsung-galaxy-volume-too-loud-minimum.html">the Samsung Galaxy version of this problem</a>.
+  <br>  This site counts visits with GoatCounter, without cookies and without storing IP addresses or other personal data.
+    <!--GV-POLISH-TM--><span class="gv-tm">Android and Google Play are trademarks of Google LLC. Other product and brand names mentioned are trademarks of their respective owners. Quiet Dial is an independent app, not affiliated with or endorsed by Google or any device maker.</span><!--GV-POLISH-TM-END-->
+  </div>
+</footer>
+<a class="gv-a11y gv-a11y-fab" id="gv-a11y-fab" href="../accessibility.html" aria-label="Accessibility"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm8.5 5.6-5.5 1.1v4.1l2.4 7.4a1 1 0 0 1-1.9.6L13.3 15h-2.6l-2.2 5.8a1 1 0 0 1-1.9-.6l2.4-7.4V8.7L3.5 7.6a1 1 0 1 1 .4-2l6.2 1.2h3.8l6.2-1.2a1 1 0 1 1 .4 2z"/></svg></a>
+<script src="../a11y.js" defer></script>
+</body>
+</html>

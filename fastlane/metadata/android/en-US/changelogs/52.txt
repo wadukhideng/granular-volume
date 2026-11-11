@@ -1,0 +1,1 @@
+Setting up is clearer. Before Android's list of apps opens, the app shows the icon and the switch to look for, in three short steps. When the switch is turned on, you are brought back to the app by itself. If you come back with the switch still off, a card stays on screen with a second try and a link to help.

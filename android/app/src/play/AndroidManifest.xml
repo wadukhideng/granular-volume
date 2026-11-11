@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+      1.6.0, belt and braces: the billing telemetry that would add these is excluded in
+      build.gradle.kts; these lines guarantee no other dependency can ever merge them back in.
+    -->
+    <uses-permission android:name="android.permission.INTERNET" tools:node="remove" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" tools:node="remove" />
+
+    <!--
+      Full-range gate (1.5.0): package visibility for the paid unlock-key app.
+      Required on API 30+ or KeyCheck's getPackageInfo silently reports
+      not-found. Play flavor only; the F-Droid build never queries anything.
+    -->
+    <queries>
+        <package android:name="com.granularvolume.key" />
+    </queries>
+
+    <!--
+      Play-flavor only. Declares the transparent host activity for the Google Play
+      in-app review dialog. Merged into the "play" build's manifest; the F-Droid
+      build never sees it, keeping that build free of any Play-review surface.
+
+      - not exported: only this app launches it, from the QS tile.
+      - noHistory + excludeFromRecents + no launcher filter: it must never appear in
+        recents or the launcher, and must not linger on the back stack.
+      - translucent theme: no visible window of its own; it just fronts the review card.
+      - no permissions are added here; the review library binds to the Play Store app
+        via a local service connection, so the app's zero-network profile is unchanged.
+    -->
+    <application>
+        <activity
+            android:name=".ReviewActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    </application>
+</manifest>

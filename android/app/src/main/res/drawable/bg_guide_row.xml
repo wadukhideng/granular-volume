@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 1.7.2: the "this is what you are looking for" row. Surface card with an accent outline. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/gv_surface" />
+    <corners android:radius="18dp" />
+    <stroke android:width="2dp" android:color="@color/gv_accent_text" />
+</shape>

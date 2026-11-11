@@ -1,0 +1,25 @@
+<resources>
+    <color name="gv_background">#0E1525</color>
+    <color name="gv_background_grad_top">#131C30</color>
+    <color name="gv_background_grad_bottom">#0B111E</color>
+    <color name="gv_surface">#16203A</color>
+    <color name="gv_surface_stroke">#243049</color>
+    <color name="gv_overlay_bg">#CC1A1A2E</color>
+    <color name="gv_text_primary">#F4F6FB</color>
+    <color name="gv_text_secondary">#9AA6BF</color>
+    <color name="gv_text_muted">#7F89A2</color>
+    <color name="gv_accent">#5046E5</color>
+    <!-- Accent as TEXT or as an outline on a dark ground: the filled accent is too dark
+         to read at 4.5:1, so the two roles need two values. Both verified 2026-09-12. -->
+    <color name="gv_accent_text">#8179FF</color>
+    <color name="gv_accent_dark">#5046E5</color>
+    <color name="gv_accent_pressed">#5B52F0</color>
+    <color name="gv_on_accent">#FFFFFF</color>
+    <color name="gv_success">#34D399</color>
+    <color name="gv_success_dim">#1F3D34</color>
+    <color name="gv_warning">#FBBF24</color>
+    <color name="gv_warning_dim">#3D341B</color>
+    <!-- 1.6.0 status badge ground for the trial state (accent at low strength on the surface). -->
+    <color name="gv_accent_dim">#262A5E</color>
+    <color name="gv_launcher_bg">#1A1A2E</color>
+</resources>

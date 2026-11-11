@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Call Volume Too Loud on the Lowest Setting? Android</title>
+<meta name="description" content="Call too loud at the lowest volume? Why the in-call floor is separate, which calls an app can make quieter, and which stay out of reach.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://granularvolume.com/guide/call-volume-too-loud-android.html">
+<meta property="og:url" content="https://granularvolume.com/guide/call-volume-too-loud-android.html">
+<meta property="og:title" content="Call Volume Too Loud on the Lowest Setting? Android">
+<meta property="og:image" content="https://granularvolume.com/img/og/guide-call-volume-too-loud-android.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Call Volume Too Loud on the Lowest Setting? Android">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://granularvolume.com/img/og/guide-call-volume-too-loud-android.png">
+<meta property="og:locale" content="en_US">
+<meta property="og:description" content="Call too loud at the lowest volume? Why the in-call floor is separate, which calls an app can make quieter, and why regular phone calls stay out of reach.">
+<meta property="og:type" content="article">
+<link rel="icon" href="../img/icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Call Volume Too Loud on the Lowest Setting? Android",
+  "description": "Call too loud at the lowest volume? Why the in-call floor is separate, which calls an app can make quieter, and why regular phone calls stay out of reach.",
+  "image": "https://granularvolume.com/img/og/guide-call-volume-too-loud-android.png",
+  "author": {"@type": "Person", "name": "Rotem Zussman"},
+  "publisher": {"@type": "Organization", "@id": "https://granularvolume.com/#org", "name": "Granular Volume", "url": "https://granularvolume.com/"},
+  "datePublished": "2026-07-27",
+  "dateModified": "2026-10-12",
+  "mainEntityOfPage": "https://granularvolume.com/guide/call-volume-too-loud-android.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Why is my call volume too loud even at the lowest setting on Android?","acceptedAnswer":{"@type":"Answer","text":"Call audio uses its own volume scale, separate from media, and that scale has its own lowest step. Like the media floor, the lowest in-call step is a fixed fraction of the maximum output rather than a fixed loudness. On a phone with a loud earpiece or a loud speaker, that fraction can still be uncomfortable in a quiet room, and Android provides no built-in setting to place a level below it."}},
+    {"@type":"Question","name":"Why do the volume buttons not go lower during a call?","acceptedAnswer":{"@type":"Answer","text":"During a call the volume keys control the call stream, not media, and Android does not allow that stream to be muted with the keys. The lowest position is the quietest step the system offers, and there is nothing below it in the stock settings."}},
+    {"@type":"Question","name":"Does the 85 dB volume limit or Safe Listening help with loud calls?","acceptedAnswer":{"@type":"Answer","text":"Generally not. Those features are hearing-safety limiters aimed at sustained loud media playback through headphones. They cap the top of the range rather than lowering the bottom of it, so if your complaint is that the quietest available level is already too loud, a limiter does not change that."}},
+    {"@type":"Question","name":"Can an equalizer make calls quieter?","acceptedAnswer":{"@type":"Answer","text":"Not usefully. An equalizer changes tonal balance rather than overall level, and most equalizer apps only affect media output, not the call path. Turning bands down can make audio sound thinner without meaningfully lowering how loud the call is."}},
+    {"@type":"Question","name":"Does Quiet Dial lower call volume?","acceptedAnswer":{"@type":"Answer","text":"For app calls such as WhatsApp, it depends on the phone: where the phone plays that audio through the normal media path, the quiet steps work on it exactly as they do on media, and where it routes it down the voice path instead, it is out of reach, so check it on yours. For regular phone calls, no. Android carries cellular voice on a separate path that runs no audio effects, measured in the system audio engine, so no app can take it below the level your phone already allows. During a regular call the app gives you your phone's own steps and shows the quiet steps dimmed rather than offering a control that cannot act."}},
+    {"@type":"Question","name":"Will it make me miss the other person or hear nothing?","acceptedAnswer":{"@type":"Answer","text":"The dial is adjustable in steps rather than being a single on or off switch, so you choose how far down to go and can change it mid-call. Start with a small reduction and go further only if you want to. It is not a mute."}},
+    {"@type":"Question","name":"Does it need root or a computer?","acceptedAnswer":{"@type":"Answer","text":"No. It uses Android's own audio-effect framework, needs only a display-over-other-apps permission and standard audio permissions, and requires no root, no ADB, and no computer."}},
+    {"@type":"Question","name":"Is it free and private?","acceptedAnswer":{"@type":"Answer","text":"Free to install, and the first seven days after you install are the complete app with nothing held back. After that, keeping the control takes one payment, once. Nothing renews and there is no subscription to cancel. No ads, no account, no subscription, and no internet permission at all, so it cannot send data anywhere. Open source under GPL-3.0."}}
+  ]
+}
+</script>
+<style>
+  :root{
+    --bg0:#0a0e1d; --bg1:#121833; --card:#161232; --accent:#5046E5; --accent2:#22d3ee;
+    --txt:#f4f6ff; --muted:#9aa3c7; --line:rgba(255,255,255,.08);
+    --good:#22d3ee; --bad:#ff6b6b; --warn:#f5b942;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Segoe UI",system-ui,sans-serif;color:var(--txt);
+    background:
+      radial-gradient(80% 50% at 75% 0%, #232a55 0%, rgba(35,42,85,0) 60%),
+      linear-gradient(180deg,#121833 0%, #0a0e1d 40%);
+    line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  a{color:var(--accent2);}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:17px;
+    padding:15px 28px;border-radius:14px;text-decoration:none;transition:transform .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:linear-gradient(145deg,var(--accent),#5B52F0);color:#fff;
+    box-shadow:0 14px 40px rgba(108,99,255,.45);}
+  .btn-ghost{border:1px solid var(--line);color:var(--txt);background:rgba(255,255,255,.03);}
+
+  header.top{padding:56px 0 8px;}
+  .crumb{font-size:14px;color:var(--muted);margin-bottom:22px;}
+  .crumb a{color:var(--muted);text-decoration:none;}
+  .crumb a:hover{color:var(--accent2);}
+  .icon{width:76px;height:76px;border-radius:20px;margin-bottom:22px;
+    background:linear-gradient(135deg,#16162B 0%, #4A43C9 100%);
+    box-shadow:0 18px 48px rgba(74,67,201,.5), inset 0 0 0 1px rgba(255,255,255,.06);
+    display:inline-flex;align-items:center;justify-content:center;overflow:hidden;}
+  .icon img{width:100%;height:100%;}
+  h1{font-size:clamp(34px,6vw,52px);font-weight:900;letter-spacing:-.8px;line-height:1.08;margin-bottom:16px;}
+  .dek{color:var(--muted);font-size:19px;max-width:620px;}
+  .meta{color:var(--muted);font-size:14px;margin-top:18px;padding-bottom:36px;border-bottom:1px solid var(--line);}
+
+  .quickfix{background:linear-gradient(145deg, rgba(108,99,255,.16), rgba(34,211,238,.07));
+    border:1px solid rgba(108,99,255,.4);border-radius:18px;padding:24px 28px;margin:28px 0 8px;}
+  .quickfix .kicker{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);margin-bottom:8px;}
+  .quickfix p{color:var(--txt);font-size:16.5px;margin-bottom:0;}
+  .quickfix .setup-note{margin-top:12px;font-size:14px;line-height:1.5;opacity:.85;}
+.cta{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;}
+  .quickfix .btn{padding:12px 22px;font-size:15.5px;}
+
+  article{padding:36px 0;}
+  article h2{font-size:26px;font-weight:800;margin:44px 0 14px;letter-spacing:-.2px;}
+  article h3{font-size:19px;font-weight:700;margin:26px 0 8px;}
+  article p{margin-bottom:16px;font-size:17px;color:#e3e5f7;}
+  article ul, article ol{margin:0 0 16px 22px;font-size:17px;color:#e3e5f7;}
+  article li{margin-bottom:8px;}
+  .lead-p{font-size:18px;color:var(--txt);}
+
+  .toc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 26px;margin:28px 0;}
+  .toc div{font-weight:700;margin-bottom:10px;font-size:14px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;}
+  .toc ol{margin:0 0 0 20px;font-size:15px;}
+  .toc a{text-decoration:none;color:#c9cdf0;}
+  .toc a:hover{color:var(--accent2);}
+
+  .fixcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 26px;margin:18px 0;}
+  .fixcard h3{margin-top:0;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .verdict{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-left:auto;}
+  .v-works{background:rgba(34,211,238,.14);color:var(--good);}
+  .v-partial{background:rgba(245,185,66,.14);color:var(--warn);}
+  .v-doesnt{background:rgba(255,107,107,.14);color:var(--bad);}
+  .fixcard p{color:var(--muted);font-size:15.5px;margin-bottom:0;}
+  .fixcard p + p{margin-top:10px;}
+
+  .callout{background:linear-gradient(145deg, rgba(108,99,255,.14), rgba(34,211,238,.08));
+    border:1px solid rgba(108,99,255,.35);border-radius:18px;padding:28px 30px;margin:40px 0;}
+  .callout h2{margin-top:0;}
+  .callout .cta{display:flex;gap:14px;margin-top:20px;flex-wrap:wrap;}
+
+  .faq dt{font-weight:700;font-size:17px;margin-top:20px;}
+  .faq dd{color:var(--muted);margin:8px 0 0;font-size:16px;}
+
+  footer{padding:48px 0 72px;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid var(--line);margin-top:24px;}
+  footer a{color:var(--accent2);text-decoration:none;}
+
+  /* Keyboard accessibility. Nothing here changes the page for mouse users. */
+  .skip-link{position:absolute;left:-9999px;top:0;z-index:999;padding:12px 20px;
+    background:var(--accent2);color:var(--bg0);font-weight:700;text-decoration:none;
+    border-radius:0 0 10px 0;}
+  .skip-link:focus{left:0;}
+  :focus-visible{outline:3px solid var(--accent2);outline-offset:3px;border-radius:4px;}
+  main:focus{outline:none;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{transition:none !important;animation:none !important;}
+  }
+  /*GV-POLISH-NAV*/
+  .gv-nav{position:sticky;top:0;z-index:900;background:rgba(10,14,29,.86);-webkit-backdrop-filter:saturate(140%) blur(10px);
+    backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid rgba(255,255,255,.08);}
+  .gv-nav-in{max-width:1080px;margin:0 auto;padding:0 20px;height:60px;display:flex;align-items:center;gap:20px;}
+  .gv-brand{display:flex;align-items:center;gap:10px;color:#f4f6ff;text-decoration:none;font-weight:800;font-size:17px;margin-right:auto;}
+  .gv-brand img{width:30px;height:30px;border-radius:8px;display:block;}
+  .gv-nav-in>a.gv-link{color:#c7cbec;text-decoration:none;font-size:15px;font-weight:600;padding:8px 4px;}
+  .gv-nav-in>a.gv-link:hover{color:#22d3ee;}
+  .gv-play{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:999px;
+    background:#5046E5;color:#fff !important;text-decoration:none;font-weight:700;font-size:15px;white-space:nowrap;}
+  .gv-play:hover{background:#5B52F0;}
+  @media (max-width:520px){.gv-nav-in{gap:12px;padding:0 14px;}.gv-nav-in>a.gv-link{font-size:14px;padding:8px 2px;}
+    .gv-brand span{display:none;}.gv-play{padding:0 13px;font-size:14px;}}
+  [id]{scroll-margin-top:76px;}
+  @media print{.gv-nav{display:none;}}
+/*GV-POLISH-NAV-END*/
+  /*GV-POLISH-TM*/
+  .gv-tm{display:block;max-width:640px;margin:14px auto 0;font-size:12.5px;line-height:1.5;color:var(--muted,#9aa3c7);}
+/*GV-POLISH-TM-END*/
+</style>
+<script src="/src.js"></script>
+<script data-goatcounter="https://granularvolume.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<style id="gv-a11y-style">
+  /* Accessibility button and panel, self-hosted (a11y.js). No third-party code, no cookies. */
+  .gv-a11y-fab{position:fixed;left:16px;bottom:16px;z-index:1000;width:52px;height:52px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;background:#5046E5;color:#fff;border:2px solid #fff;
+    box-shadow:0 6px 18px rgba(0,0,0,.45);cursor:pointer;padding:0;text-decoration:none;}
+  .gv-a11y-fab svg{width:30px;height:30px;fill:currentColor;}
+  @media (max-width:640px){.gv-a11y-fab{width:44px;height:44px;left:10px;bottom:10px;}.gv-a11y-fab svg{width:25px;height:25px;}.gv-a11y-panel{bottom:64px;}body{padding-bottom:64px;}}
+  .gv-a11y-fab:focus-visible,.gv-a11y-btn:focus-visible,.gv-a11y-link:focus-visible{outline:3px solid #22d3ee;outline-offset:3px;}
+  .gv-a11y-panel{position:fixed;left:16px;bottom:78px;z-index:1000;width:min(300px,calc(100vw - 32px));
+    max-height:calc(100vh - 100px);overflow:auto;background:#161232;color:#f4f6ff;border:1px solid rgba(255,255,255,.35);
+    border-radius:14px;padding:14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font:16px/1.4 "Segoe UI",system-ui,sans-serif;text-align:left;}
+  .gv-a11y-title{font-weight:800;font-size:17px;margin:0 0 10px;}
+  .gv-a11y-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+  .gv-a11y-label{flex:1;}
+  .gv-a11y-value{min-width:46px;text-align:center;}
+  .gv-a11y-btn{display:block;width:100%;min-height:44px;margin:0 0 8px;padding:8px 12px;border-radius:10px;
+    border:1px solid rgba(255,255,255,.35);background:#232a55;color:#f4f6ff;font:inherit;text-align:left;cursor:pointer;}
+  .gv-a11y-step{width:52px;margin:0;text-align:center;font-weight:700;}
+  .gv-a11y-btn[aria-pressed="true"]{background:#5046E5;border-color:#fff;}
+  .gv-a11y-btn[aria-pressed="true"]::after{content:" \2713";}
+  .gv-a11y-btn:disabled{opacity:.45;cursor:default;}
+  .gv-a11y-link{display:block;margin:4px 0 10px;color:#22d3ee;}
+  .gv-a11y-close{margin-bottom:0;}
+  html.gv-hc body,html.gv-hc body *:not(img):not(svg):not(path){background:#000 !important;
+    border-color:#fff !important;text-shadow:none !important;box-shadow:none !important;}
+  html.gv-hc body,html.gv-hc body *{color:#fff !important;}
+  html.gv-hc body a,html.gv-hc body a *{color:#ff0 !important;}
+  html.gv-hc .gv-a11y-btn[aria-pressed="true"]{outline:3px solid #ff0;}
+  html.gv-ul a{text-decoration:underline !important;}
+  html.gv-rf body,html.gv-rf body *{font-family:Arial,Helvetica,sans-serif !important;letter-spacing:.02em;word-spacing:.06em;}
+  @media print{.gv-a11y{display:none !important;}}
+</style>
+<script type="application/ld+json" data-gv="crumbs">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Quiet Dial", "item": "https://granularvolume.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://granularvolume.com/guide/"}, {"@type": "ListItem", "position": 3, "name": "Call volume too loud, even at the lowest setting?", "item": "https://granularvolume.com/guide/call-volume-too-loud-android.html"}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the main content</a><!--GV-POLISH-NAV--><nav class="gv-nav" aria-label="Site"><div class="gv-nav-in"><a class="gv-brand" href="/" aria-label="Quiet Dial home"><img src="/img/icon-64.webp" width="30" height="30" alt=""><span>Quiet Dial</span></a><a class="gv-link" href="/guide/">Guides</a><a class="gv-link" href="/help.html">Help</a><a class="gv-play" href="https://play.google.com/store/apps/details?id=granularvolume.com&amp;referrer=utm_source%3Dsite%26utm_medium%3Dnav%26utm_campaign%3Dcall-volume-too-loud-android" data-goatcounter-click="play-nav-guide-call-volume-too-loud-android"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg>Google Play</a></div></nav><!--GV-POLISH-NAV-END-->
+
+<div class="wrap">
+
+  <header class="top">
+    <div class="crumb"><a href="../">Quiet Dial</a> / <a href="./">Guides</a></div>
+    <div class="icon"><img width="160" height="160" src="../img/icon-160.webp" alt="Quiet Dial icon"></div>
+    <h1>Call volume too loud, even at the lowest setting?</h1>
+    <p class="dek">Why the earpiece and speakerphone have their own volume floor, why the safety limiter and the equalizer do not touch it, and what can go below Android's minimum: app calls on some phones, never regular phone calls. No root.</p>
+    <p class="meta">Updated October 12, 2026 &middot; 6 min read</p>
+  </header>
+<main id="main" tabindex="-1">
+
+  <article>
+    <p class="lead-p">You are on a call in a quiet room. You press the volume key down until it stops, and the other person is still uncomfortably loud in your ear, or the speakerphone still fills the room. Some people end up holding the phone away from their head. This is a real limit rather than a setting you have missed, and it is separate from the media volume problem even though it feels identical.</p>
+
+    <div class="quickfix">
+      <div class="kicker">Short on time? Here's the answer</div>
+      <p><strong>Volume Control: Quiet Dial</strong> adds quieter steps underneath Android's own minimum. That covers media, ringtones, notifications, alarms, and app calls such as WhatsApp on phones that play them through the media output. It does not cover regular phone calls: Android carries cellular voice on an output that runs no audio effects, so no app can take it below the level your phone already allows. No root, set up in a minute.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=granularvolume.com&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcta%26utm_campaign%3Dcall-volume-too-loud-android" data-goatcounter-click="play-cta-call-volume-too-loud-android-top">Get it on Google Play</a>
+        <a class="btn btn-ghost" href="#fix">Why this works, others don't</a>
+      </div>
+      <p class="setup-note">After you install, open it once and allow it to display over other apps. That is the entire setup. Everything is open for seven days; after that the dial needs one payment, once, inside the app. No subscription.</p>
+    </div>
+
+    <div class="toc">
+      <div>On this page</div>
+      <ol>
+        <li><a href="#why">Why calls have their own volume floor</a></li>
+        <li><a href="#keys">Why the volume keys stop where they stop</a></li>
+        <li><a href="#limiter">The 85 dB limit and Safe Listening</a></li>
+        <li><a href="#eq">Equalizers and sound profiles</a></li>
+        <li><a href="#fix">The fix: a level below the minimum</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+
+    <h2 id="why">Why calls have their own volume floor</h2>
+    <p>Android keeps call audio on a separate volume scale from media. That is why turning your music down has no effect on how loud the person on the other end sounds, and why the volume keys behave differently the moment a call connects. Each scale has its own number of steps and its own lowest step.</p>
+    <p>The problem is what that lowest step actually is. It is not a fixed loudness. It is a fixed fraction of what that particular phone can output, so on a device with a powerful earpiece or a loud speaker, the quietest step the system offers can still be past comfortable, especially in a silent room or late at night. Nothing in the stock settings places a level underneath it.</p>
+    <p>People describe the result the same way across every forum where this comes up. One Fairphone owner put it plainly: in an environment that is even slightly quiet, the minimum speaker volume is too loud, and holding the phone to your head is no better, so you end up keeping it at a distance.</p>
+
+    <h2 id="keys">Why the volume keys stop where they stop</h2>
+    <div class="fixcard">
+      <h3>Pressing volume down during a call <span class="verdict v-doesnt">Already at the bottom</span></h3>
+      <p>During a call the volume keys control the call stream rather than media, and Android does not let that stream be muted with the keys. So the lowest position you can reach is the system's quietest step, and holding the key longer does nothing further. If that step is too loud, the keys have no answer for you.</p>
+    </div>
+
+    <p><strong>On a Pixel, rule one thing out first.</strong> Android's hearing aid compatibility mode changes how the earpiece drives its output, it can end up enabled without you turning it on, and while it is on calls are far louder than normal at every level. It is free and instant to check, so it is worth doing before anything else: <a href="pixel-call-volume-too-loud-lowest-setting.html">the Pixel call volume guide</a> covers where the setting lives and what to do if that was not the cause.</p>
+
+    <h2 id="limiter">The 85 dB limit and Safe Listening</h2>
+    <div class="fixcard">
+      <h3>Hearing-safety limiters <span class="verdict v-doesnt">Caps the top, not the bottom</span></h3>
+      <p>These features exist to protect you from sustained loud media through headphones. They put a ceiling on the range. If your complaint is that the quietest available level is already uncomfortable, lowering the ceiling changes nothing about where the floor sits. This is one of the most common things people try first, and one of the most common to report as having made no noticeable difference.</p>
+    </div>
+
+    <h2 id="eq">Equalizers and sound profiles</h2>
+    <div class="fixcard">
+      <h3>EQ presets, Soft mode, adaptive sound <span class="verdict v-partial">Changes tone, not level</span></h3>
+      <p>An equalizer shifts the balance between frequencies. It can take some harshness out of a voice, which is worth trying if your discomfort is about sharpness rather than volume. But it is not a level control, and most equalizer features only apply to media output rather than the call path. Pulling every band down tends to make audio sound thin and hollow long before it makes a call meaningfully quieter.</p>
+    </div>
+
+    <h2 id="fix">The fix: a level below the minimum</h2>
+    <div class="fixcard">
+      <h3>Below-floor volume reduction through Android's audio framework <span class="verdict v-works">Actually works</span></h3>
+      <p>Rather than trying to add steps inside the existing range, this method applies negative gain through Android's own audio effect framework. Because it reduces the level after the system has already applied its own minimum, it can place the output below where the volume keys stop.</p>
+      <p>This is what <a href="../">Quiet Dial</a> does for app calls such as WhatsApp, on phones that play them through the media output: a small floating dial you can open during the call, with steps from no change down to well below your hardware minimum, as a flat reduction that makes things quieter without changing how they sound. On a regular phone call it cannot go below the lowest step your phone already offers, because Android carries cellular voice on a separate path that runs no audio effects. There the dial gives you your phone's own steps and shows the quiet steps dimmed.</p>
+      <p>Two honest notes. It lowers the level, so use it in steps rather than going straight to the bottom, and adjust mid-call if you have gone too far. And it does not change tone, so if your real complaint is that voices sound harsh or sharp rather than loud, this addresses the loudness half of that and not the sharpness half.</p>
+    </div>
+
+    <div class="callout">
+      <h2>Take a call in a quiet room without wincing</h2>
+      <p>If the lowest volume on WhatsApp and other app calls is still too loud, this adds the levels underneath it, for the earpiece and the speaker, on phones that play app calls through their media output (check it on yours). Regular phone calls keep your phone's own lowest step. Open source, no ads, no tracking, no account, and no internet permission at all.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=granularvolume.com&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcta%26utm_campaign%3Dcall-volume-too-loud-android" data-goatcounter-click="play-cta-call-volume-too-loud-android-bottom">Get it on Google Play</a>
+        <a class="btn btn-ghost" href="lower-android-volume-below-minimum.html">The full below-minimum guide</a>
+      </div>
+      <p class="setup-note">After you install, open it once and allow it to display over other apps. That is the entire setup. Everything is open for seven days; after that the dial needs one payment, once, inside the app. No subscription.</p>
+    </div>
+
+    <p>Where people use it most: <a href="../use-cases/tinnitus-sensitive-hearing.html">sensitive hearing</a>, <a href="../use-cases/quiet-rooms-libraries.html">quiet rooms and libraries</a>.</p>
+
+    <h2 id="faq">FAQ</h2>
+    <dl class="faq">
+      <dt>Why is my call volume too loud even at the lowest setting on Android?</dt>
+      <dd>Call audio has its own volume scale with its own lowest step, and that step is a fixed fraction of the phone's maximum output rather than a fixed loudness. On a loud earpiece or speaker it can still be uncomfortable, and Android has no built-in setting for a level below it.</dd>
+      <dt>Why do the volume buttons not go lower during a call?</dt>
+      <dd>During a call the keys control the call stream, which Android does not allow to be muted with the keys. The lowest position is the quietest step the system offers, and there is nothing below it in stock settings.</dd>
+      <dt>Does the 85 dB limit or Safe Listening help?</dt>
+      <dd>Generally not. Those are hearing-safety limiters that cap the top of the range. They do not lower the bottom of it, which is the part causing the problem here.</dd>
+      <dt>Can an equalizer make calls quieter?</dt>
+      <dd>Not usefully. An equalizer changes tone rather than level, and most equalizer features only affect media rather than the call path.</dd>
+      <dt>Does Quiet Dial lower call volume?</dt>
+      <dd>For app calls such as WhatsApp, it depends on the phone: where the phone plays that audio through the normal media path, the quiet steps work on it exactly as they do on media, and where it routes it down the voice path instead, it is out of reach, so check it on yours. For regular phone calls, no. Android carries cellular voice on a separate path that runs no audio effects, measured in the system audio engine, so no app can take it below the level your phone already allows. During a regular call the app gives you your phone's own steps and shows the quiet steps dimmed rather than offering a control that cannot act.</dd>
+      <dt>Will it make me miss the other person entirely?</dt>
+      <dd>It is a stepped dial rather than an on or off switch, so you choose how far down to go and can change it during the call. Start small and go further only if you want to. It is not a mute.</dd>
+      <dt>Does it need root or a computer?</dt>
+      <dd>No. It uses Android's own audio-effect framework, needs only a display-over-other-apps permission and standard audio permissions, and requires no root, ADB, or computer.</dd>
+      <dt>Is it free and private?</dt>
+      <dd>Free to install, and the first seven days after you install are the complete app with nothing held back. After that, keeping the control takes one payment, once. Nothing renews and there is no subscription to cancel. No ads, no account, no subscription, and no internet permission at all, so it cannot send data anywhere. Open source under GPL-3.0.</dd>
+    </dl>
+  </article>
+
+</main>
+</div>
+<footer>
+  <div class="wrap">
+    Part of <a href="../">Quiet Dial</a> by Granular Volume, open source under the
+    <a href="https://github.com/Rzuss/granular-volume/blob/main/LICENSE">GNU GPL-3.0</a>.
+    <a href="https://rzuss.github.io/granular-volume-privacy/">Privacy Policy</a> &middot;
+    <a href="https://rzuss.github.io/granular-volume-privacy/terms-of-use.html">Terms of Use</a> &middot; <a href="https://rzuss.github.io/granular-volume-privacy/terms-of-use.html#refunds">Refunds</a> &middot; <a href="https://rzuss.github.io/granular-volume-privacy/#controller">Legal notice / Impressum</a> &middot;
+    <a href="../help.html">Help</a> · <a href="../accessibility.html">Accessibility</a>.
+    <br>
+    See also:
+    <a href="lower-android-volume-below-minimum.html">every method for going below the minimum, ranked</a> ·
+    <a href="bluetooth-earbuds-volume-too-loud-lowest.html">calls and audio through Bluetooth earbuds</a> ·
+    <a href="pixel-call-volume-too-loud-lowest-setting.html">the Pixel specific version</a>.
+  <br>  This site counts visits with GoatCounter, without cookies and without storing IP addresses or other personal data.
+    <!--GV-POLISH-TM--><span class="gv-tm">Android and Google Play are trademarks of Google LLC. Other product and brand names mentioned are trademarks of their respective owners. Quiet Dial is an independent app, not affiliated with or endorsed by Google or any device maker.</span><!--GV-POLISH-TM-END-->
+  </div>
+</footer>
+<a class="gv-a11y gv-a11y-fab" id="gv-a11y-fab" href="../accessibility.html" aria-label="Accessibility"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm8.5 5.6-5.5 1.1v4.1l2.4 7.4a1 1 0 0 1-1.9.6L13.3 15h-2.6l-2.2 5.8a1 1 0 0 1-1.9-.6l2.4-7.4V8.7L3.5 7.6a1 1 0 1 1 .4-2l6.2 1.2h3.8l6.2-1.2a1 1 0 1 1 .4 2z"/></svg></a>
+<script src="../a11y.js" defer></script>
+</body>
+</html>

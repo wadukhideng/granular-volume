@@ -1,0 +1,3 @@
+Stability: the control can no longer leave a stray overlay behind if it is stopped while the dial is folding away, and the main screen no longer closes with an error when the app is left during a rating prompt.
+
+This F-Droid build stays free and complete.

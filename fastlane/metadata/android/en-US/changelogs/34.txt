@@ -1,0 +1,5 @@
+New: minimize the dial. Tap the minus, or push the dial past a screen edge, and it folds into a small tab with a plus sign. The tab still shows the level and the orange line, and the quiet steps keep working. Tap the plus to bring the dial back exactly where it was. Drop the dial near an edge and it docks there.
+
+A short four-step tour explains the dial on the first start after this update; replay it from the info button.
+
+This F-Droid build stays free and complete.

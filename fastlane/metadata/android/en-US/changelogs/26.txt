@@ -1,0 +1,9 @@
+Volume keys now climb smoothly out of the quiet zone: once your presses have
+eased the extra attenuation away, further presses raise the volume normally
+instead of being pulled back down.
+
+If something else keeps raising the volume, a second raise by you now wins.
+
+On a regular phone call the quiet steps are shown dimmed. Android carries call
+audio on a path that runs no audio effects. App calls such as WhatsApp keep the
+full range on most phones.

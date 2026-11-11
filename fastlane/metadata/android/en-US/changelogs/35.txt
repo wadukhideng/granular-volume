@@ -1,0 +1,3 @@
+Fix: after the dial came back from the edge tab, the bars above the orange line were not drawn (the volume still changed). They now appear every time.
+
+This F-Droid build stays free and complete.

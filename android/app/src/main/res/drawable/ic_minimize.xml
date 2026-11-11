@@ -1,0 +1,16 @@
+<!--
+  Minimize glyph for the overlay's meta zone: one horizontal bar, nothing else. It sits
+  beside the info glyph in the second row, so it shares ic_close's 24dp viewport and
+  stroke weight and reads as the third member of the same family. A bar (not a chevron,
+  not an arrow) because "minimize" is what every desktop has taught for thirty years, and
+  the collapsed form it produces is itself a bar at the screen edge.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M5,11h14v2H5z" />
+</vector>

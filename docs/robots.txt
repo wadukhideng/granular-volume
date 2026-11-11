@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://granularvolume.com/sitemap.xml

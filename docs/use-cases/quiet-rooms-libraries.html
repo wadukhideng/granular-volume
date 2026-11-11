@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiet Android Volume for Libraries and Shared Rooms</title>
+<meta name="description" content="Lowest volume still too loud in a library, shared office or quiet room? How to set a level below Android's floor, without headphones. No root.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://granularvolume.com/use-cases/quiet-rooms-libraries.html">
+<meta property="og:url" content="https://granularvolume.com/use-cases/quiet-rooms-libraries.html">
+<meta property="og:title" content="Quiet Android Volume for Libraries and Shared Rooms">
+<meta property="og:image" content="https://granularvolume.com/img/og/use-cases-quiet-rooms-libraries.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Quiet Android Volume for Libraries and Shared Rooms">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://granularvolume.com/img/og/use-cases-quiet-rooms-libraries.png">
+<meta property="og:locale" content="en_US">
+<meta property="og:description" content="Lowest volume still too loud in a library, shared office or quiet room? How to set a level below Android's floor, without headphones. No root.">
+<meta property="og:type" content="article">
+<link rel="icon" href="../img/icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Quiet Android Volume for Libraries and Shared Rooms",
+  "description": "Lowest volume still too loud in a library, shared office or quiet room? How to set a level below Android's floor, without headphones. No root.",
+  "image": "https://granularvolume.com/img/og/use-cases-quiet-rooms-libraries.png",
+  "author": {"@type": "Person", "name": "Rotem Zussman"},
+  "publisher": {"@type": "Organization", "@id": "https://granularvolume.com/#org", "name": "Granular Volume", "url": "https://granularvolume.com/"},
+  "datePublished": "2026-07-14",
+  "dateModified": "2026-10-04",
+  "mainEntityOfPage": "https://granularvolume.com/use-cases/quiet-rooms-libraries.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is it obvious to people around me that I'm using this?",
+      "acceptedAnswer": {"@type": "Answer", "text": "The dial is small and, once tucked into a corner of the screen, turns semi-transparent, so it reads as a minor UI element rather than anything conspicuous. There's no sound, animation, or notification beyond the standard foreground-service icon in the status bar."}
+    },
+    {
+      "@type": "Question",
+      "name": "Does it apply to notification and media sounds together, or just media playback?",
+      "acceptedAnswer": {"@type": "Answer", "text": "The reduction is applied to the device's global output mix rather than to one specific app's stream, so it affects whatever is currently playing through that mix, not a single allow-listed app."}
+    },
+    {
+      "@type": "Question",
+      "name": "Can I set one quiet level and reuse it every time without resetting it?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. The level you set is remembered, so reopening the dial from the Quick Settings tile brings back the same level you left it at, rather than resetting to zero each time."}
+    }
+  ]
+}
+</script>
+<style>
+  :root{
+    --bg0:#0a0e1d; --bg1:#121833; --card:#161232; --accent:#5046E5; --accent2:#22d3ee;
+    --txt:#f4f6ff; --muted:#9aa3c7; --line:rgba(255,255,255,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Segoe UI",system-ui,sans-serif;color:var(--txt);
+    background:
+      radial-gradient(80% 50% at 75% 0%, #232a55 0%, rgba(35,42,85,0) 60%),
+      linear-gradient(180deg,#121833 0%, #0a0e1d 40%);
+    line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  a{color:var(--accent2);}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:17px;
+    padding:15px 28px;border-radius:14px;text-decoration:none;transition:transform .15s ease;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:linear-gradient(145deg,var(--accent),#5B52F0);color:#fff;
+    box-shadow:0 14px 40px rgba(108,99,255,.45);}
+  .btn-ghost{border:1px solid var(--line);color:var(--txt);background:rgba(255,255,255,.03);}
+  header.top{padding:56px 0 8px;}
+  .crumb{font-size:14px;color:var(--muted);margin-bottom:22px;}
+  .crumb a{color:var(--muted);text-decoration:none;}
+  .crumb a:hover{color:var(--accent2);}
+  .icon{width:76px;height:76px;border-radius:20px;margin-bottom:22px;
+    background:linear-gradient(135deg,#16162B 0%, #4A43C9 100%);
+    box-shadow:0 18px 48px rgba(74,67,201,.5), inset 0 0 0 1px rgba(255,255,255,.06);
+    display:inline-flex;align-items:center;justify-content:center;overflow:hidden;}
+  .icon img{width:100%;height:100%;}
+  h1{font-size:clamp(32px,6vw,48px);font-weight:900;letter-spacing:-.7px;line-height:1.1;margin-bottom:16px;}
+  .dek{color:var(--muted);font-size:19px;max-width:620px;}
+  .meta{color:var(--muted);font-size:14px;margin-top:18px;padding-bottom:36px;border-bottom:1px solid var(--line);}
+  .quickfix{background:linear-gradient(145deg, rgba(108,99,255,.16), rgba(34,211,238,.07));
+    border:1px solid rgba(108,99,255,.4);border-radius:18px;padding:24px 28px;margin:28px 0 8px;}
+  .quickfix .kicker{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);margin-bottom:8px;}
+  .quickfix p{color:var(--txt);font-size:16.5px;margin-bottom:0;}
+  .quickfix .setup-note{margin-top:12px;font-size:14px;line-height:1.5;opacity:.85;}
+.cta{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;}
+  .quickfix .btn{padding:12px 22px;font-size:15.5px;}
+  article{padding:36px 0;}
+  article h2{font-size:24px;font-weight:800;margin:40px 0 14px;letter-spacing:-.2px;}
+  article p{margin-bottom:16px;font-size:17px;color:#e3e5f7;}
+  article ul{margin:0 0 16px 22px;font-size:17px;color:#e3e5f7;}
+  article li{margin-bottom:8px;}
+  .lead-p{font-size:18px;color:var(--txt);}
+  .callout{background:linear-gradient(145deg, rgba(108,99,255,.14), rgba(34,211,238,.08));
+    border:1px solid rgba(108,99,255,.35);border-radius:18px;padding:28px 30px;margin:40px 0;}
+  .callout h2{margin-top:0;}
+  .callout .cta{display:flex;gap:14px;margin-top:20px;flex-wrap:wrap;}
+  .faq dt{font-weight:700;font-size:17px;margin-top:20px;}
+  .faq dd{color:var(--muted);margin:8px 0 0;font-size:16px;}
+  footer{padding:48px 0 72px;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid var(--line);margin-top:24px;}
+  footer a{color:var(--accent2);text-decoration:none;}
+
+  /* Keyboard accessibility. Nothing here changes the page for mouse users. */
+  .skip-link{position:absolute;left:-9999px;top:0;z-index:999;padding:12px 20px;
+    background:var(--accent2);color:var(--bg0);font-weight:700;text-decoration:none;
+    border-radius:0 0 10px 0;}
+  .skip-link:focus{left:0;}
+  :focus-visible{outline:3px solid var(--accent2);outline-offset:3px;border-radius:4px;}
+  main:focus{outline:none;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{transition:none !important;animation:none !important;}
+  }
+  /*GV-POLISH-NAV*/
+  .gv-nav{position:sticky;top:0;z-index:900;background:rgba(10,14,29,.86);-webkit-backdrop-filter:saturate(140%) blur(10px);
+    backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid rgba(255,255,255,.08);}
+  .gv-nav-in{max-width:1080px;margin:0 auto;padding:0 20px;height:60px;display:flex;align-items:center;gap:20px;}
+  .gv-brand{display:flex;align-items:center;gap:10px;color:#f4f6ff;text-decoration:none;font-weight:800;font-size:17px;margin-right:auto;}
+  .gv-brand img{width:30px;height:30px;border-radius:8px;display:block;}
+  .gv-nav-in>a.gv-link{color:#c7cbec;text-decoration:none;font-size:15px;font-weight:600;padding:8px 4px;}
+  .gv-nav-in>a.gv-link:hover{color:#22d3ee;}
+  .gv-play{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:999px;
+    background:#5046E5;color:#fff !important;text-decoration:none;font-weight:700;font-size:15px;white-space:nowrap;}
+  .gv-play:hover{background:#5B52F0;}
+  @media (max-width:520px){.gv-nav-in{gap:12px;padding:0 14px;}.gv-nav-in>a.gv-link{font-size:14px;padding:8px 2px;}
+    .gv-brand span{display:none;}.gv-play{padding:0 13px;font-size:14px;}}
+  [id]{scroll-margin-top:76px;}
+  @media print{.gv-nav{display:none;}}
+/*GV-POLISH-NAV-END*/
+  /*GV-POLISH-TM*/
+  .gv-tm{display:block;max-width:640px;margin:14px auto 0;font-size:12.5px;line-height:1.5;color:var(--muted,#9aa3c7);}
+/*GV-POLISH-TM-END*/
+</style>
+<script src="/src.js"></script>
+<script data-goatcounter="https://granularvolume.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<style id="gv-a11y-style">
+  /* Accessibility button and panel, self-hosted (a11y.js). No third-party code, no cookies. */
+  .gv-a11y-fab{position:fixed;left:16px;bottom:16px;z-index:1000;width:52px;height:52px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;background:#5046E5;color:#fff;border:2px solid #fff;
+    box-shadow:0 6px 18px rgba(0,0,0,.45);cursor:pointer;padding:0;text-decoration:none;}
+  .gv-a11y-fab svg{width:30px;height:30px;fill:currentColor;}
+  @media (max-width:640px){.gv-a11y-fab{width:44px;height:44px;left:10px;bottom:10px;}.gv-a11y-fab svg{width:25px;height:25px;}.gv-a11y-panel{bottom:64px;}body{padding-bottom:64px;}}
+  .gv-a11y-fab:focus-visible,.gv-a11y-btn:focus-visible,.gv-a11y-link:focus-visible{outline:3px solid #22d3ee;outline-offset:3px;}
+  .gv-a11y-panel{position:fixed;left:16px;bottom:78px;z-index:1000;width:min(300px,calc(100vw - 32px));
+    max-height:calc(100vh - 100px);overflow:auto;background:#161232;color:#f4f6ff;border:1px solid rgba(255,255,255,.35);
+    border-radius:14px;padding:14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font:16px/1.4 "Segoe UI",system-ui,sans-serif;text-align:left;}
+  .gv-a11y-title{font-weight:800;font-size:17px;margin:0 0 10px;}
+  .gv-a11y-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+  .gv-a11y-label{flex:1;}
+  .gv-a11y-value{min-width:46px;text-align:center;}
+  .gv-a11y-btn{display:block;width:100%;min-height:44px;margin:0 0 8px;padding:8px 12px;border-radius:10px;
+    border:1px solid rgba(255,255,255,.35);background:#232a55;color:#f4f6ff;font:inherit;text-align:left;cursor:pointer;}
+  .gv-a11y-step{width:52px;margin:0;text-align:center;font-weight:700;}
+  .gv-a11y-btn[aria-pressed="true"]{background:#5046E5;border-color:#fff;}
+  .gv-a11y-btn[aria-pressed="true"]::after{content:" \2713";}
+  .gv-a11y-btn:disabled{opacity:.45;cursor:default;}
+  .gv-a11y-link{display:block;margin:4px 0 10px;color:#22d3ee;}
+  .gv-a11y-close{margin-bottom:0;}
+  html.gv-hc body,html.gv-hc body *:not(img):not(svg):not(path){background:#000 !important;
+    border-color:#fff !important;text-shadow:none !important;box-shadow:none !important;}
+  html.gv-hc body,html.gv-hc body *{color:#fff !important;}
+  html.gv-hc body a,html.gv-hc body a *{color:#ff0 !important;}
+  html.gv-hc .gv-a11y-btn[aria-pressed="true"]{outline:3px solid #ff0;}
+  html.gv-ul a{text-decoration:underline !important;}
+  html.gv-rf body,html.gv-rf body *{font-family:Arial,Helvetica,sans-serif !important;letter-spacing:.02em;word-spacing:.06em;}
+  @media print{.gv-a11y{display:none !important;}}
+</style>
+<script type="application/ld+json" data-gv="crumbs">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Quiet Dial", "item": "https://granularvolume.com/"}, {"@type": "ListItem", "position": 2, "name": "Use cases", "item": "https://granularvolume.com/guide/#use-cases"}, {"@type": "ListItem", "position": 3, "name": "Quiet phone volume for libraries, shared offices, and meditation", "item": "https://granularvolume.com/use-cases/quiet-rooms-libraries.html"}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the main content</a><!--GV-POLISH-NAV--><nav class="gv-nav" aria-label="Site"><div class="gv-nav-in"><a class="gv-brand" href="/" aria-label="Quiet Dial home"><img src="/img/icon-64.webp" width="30" height="30" alt=""><span>Quiet Dial</span></a><a class="gv-link" href="/guide/">Guides</a><a class="gv-link" href="/help.html">Help</a><a class="gv-play" href="https://play.google.com/store/apps/details?id=granularvolume.com&amp;referrer=utm_source%3Dsite%26utm_medium%3Dnav%26utm_campaign%3Dquiet-rooms-libraries" data-goatcounter-click="play-nav-use-cases-quiet-rooms-libraries"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg>Google Play</a></div></nav><!--GV-POLISH-NAV-END-->
+
+<div class="wrap">
+
+  <header class="top">
+    <div class="crumb"><a href="../">Quiet Dial</a> / <a href="../guide/#use-cases">Use cases</a></div>
+    <div class="icon"><img width="160" height="160" src="../img/icon-160.webp" alt="Quiet Dial icon"></div>
+    <h1>Quiet phone volume for libraries, shared offices, and meditation</h1>
+    <p class="dek">Some spaces need audio to be almost inaudible, not just "on low." A phone's lowest volume step usually isn't built for that.</p>
+    <p class="meta">Updated October 4, 2026 · 4 min read</p>
+  </header>
+<main id="main" tabindex="-1">
+
+  <article>
+    <p class="lead-p">A library, a shared office, a meditation session, or anywhere else that needs genuine quiet has a lower bar than most phones are designed to meet. The lowest non-mute volume step on a typical phone or tablet is loud enough to be heard by someone a few seats away, which is exactly the wrong loudness for these settings.</p>
+
+    <p>This isn't inconsistent behavior from your phone. It's how Android's volume system works everywhere. The lowest step above mute is a fixed fraction of the device's maximum output, calibrated for average listening conditions, not for a room where any audible phone is too much.</p>
+
+    <div class="quickfix">
+      <div class="kicker">The actual fix</div>
+      <p><strong>Volume Control: Quiet Dial</strong> adds real volume steps below your device's hardware minimum. Set it low, tuck the dial into a corner where it turns semi-transparent, and it stays out of the way.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=granularvolume.com&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcta%26utm_campaign%3Dquiet-rooms-libraries" data-goatcounter-click="play-cta-quiet-rooms-libraries-top">Get it on Google Play</a>
+        <a class="btn btn-ghost" href="../guide/lower-android-volume-below-minimum.html">See every method, ranked</a>
+      </div>
+      <p class="setup-note">After you install, open it once and allow it to display over other apps. That is the entire setup. Everything is open for seven days; after that the dial needs one payment, once, inside the app. No subscription.</p>
+    </div>
+
+    <h2>Why "just turn it all the way down" isn't enough</h2>
+    <p>The instinct to turn the volume slider all the way down assumes the lowest setting is quiet enough for any situation. For most quiet shared spaces, it isn't, and the usual fallback of "use headphones" isn't always practical, whether that's a meditation app meant to play softly into a room, or a notification you'd rather hear faintly than miss entirely.</p>
+    <p>Apps that offer more volume steps help a little and then stop. The first step of a longer scale sits lower on Android's loudness curve than the first step of a short one, worth a few dB. Past that the curve has a fixed bottom, and no number of steps goes below it. If the quietest available level is still audible across the room, that is the wall you have hit.</p>
+
+    <h2>What actually gets you there</h2>
+    <p>A volume reduction applied underneath the existing volume range, rather than more steps within it, is what changes the actual floor. Quiet Dial applies this as a small floating dial over whatever app is playing sound, with real steps below what the phone's own slider can reach.</p>
+    <ul>
+      <li>Set a level once and it's remembered: reopening the dial from the Quick Settings tile brings back the same quiet setting, not a reset to zero.</li>
+      <li>Tucked into a corner, the dial turns semi-transparent and doesn't draw attention on screen.</li>
+      <li>No account, no ads, no network access. Nothing about it needs setting up more than once.</li>
+    </ul>
+
+    <div class="callout">
+      <h2>The quiet setting your phone doesn't have</h2>
+      <p>Open source, no ads, no tracking, no account. Works the same way on phones and tablets, and doesn't require headphones to get genuinely quiet output.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=granularvolume.com&amp;referrer=utm_source%3Dsite%26utm_medium%3Dcta%26utm_campaign%3Dquiet-rooms-libraries" data-goatcounter-click="play-cta-quiet-rooms-libraries-bottom">Get it on Google Play</a>
+        <a class="btn btn-ghost" href="../">See how it works</a>
+      </div>
+      <p class="setup-note">After you install, open it once and allow it to display over other apps. That is the entire setup. Everything is open for seven days; after that the dial needs one payment, once, inside the app. No subscription.</p>
+    </div>
+
+    <h2 id="faq">FAQ</h2>
+    <dl class="faq">
+      <dt>Is it obvious to people around me that I'm using this?</dt>
+      <dd>The dial is small and, once tucked into a corner of the screen, turns semi-transparent, so it reads as a minor UI element rather than anything conspicuous. There's no sound, animation, or notification beyond the standard foreground-service icon in the status bar.</dd>
+
+      <dt>Does it apply to notification and media sounds together, or just media playback?</dt>
+      <dd>The reduction is applied to the device's global output mix rather than to one specific app's stream, so it affects whatever is currently playing through that mix, not a single allow-listed app.</dd>
+
+      <dt>Can I set one quiet level and reuse it every time without resetting it?</dt>
+      <dd>Yes. The level you set is remembered, so reopening the dial from the Quick Settings tile brings back the same level you left it at, rather than resetting to zero each time.</dd>
+    </dl>
+  </article>
+
+</main>
+</div>
+<footer>
+  <div class="wrap">
+    Part of <a href="../">Quiet Dial</a> by Granular Volume, open source under the
+    <a href="https://github.com/Rzuss/granular-volume/blob/main/LICENSE">GNU GPL-3.0</a>.
+    <a href="https://rzuss.github.io/granular-volume-privacy/">Privacy Policy</a> &middot;
+    <a href="https://rzuss.github.io/granular-volume-privacy/terms-of-use.html">Terms of Use</a> &middot; <a href="https://rzuss.github.io/granular-volume-privacy/terms-of-use.html#refunds">Refunds</a> &middot; <a href="https://rzuss.github.io/granular-volume-privacy/#controller">Legal notice / Impressum</a> &middot;
+    See also: <a href="../guide/lower-android-volume-below-minimum.html">the full guide</a> ·
+    <a href="night-audiobooks-podcasts.html">falling asleep to audio</a> ·
+    <a href="../guide/kids-tablet-volume-too-loud-lowest.html">a child's tablet at bedtime</a> ·
+    <a href="tinnitus-sensitive-hearing.html">sound sensitivity and tinnitus</a>.
+      <a href="../help.html">Help</a> · <a href="../accessibility.html">Accessibility</a>.
+  <br>  This site counts visits with GoatCounter, without cookies and without storing IP addresses or other personal data.
+    <!--GV-POLISH-TM--><span class="gv-tm">Android and Google Play are trademarks of Google LLC. Other product and brand names mentioned are trademarks of their respective owners. Quiet Dial is an independent app, not affiliated with or endorsed by Google or any device maker.</span><!--GV-POLISH-TM-END-->
+  </div>
+</footer>
+<a class="gv-a11y gv-a11y-fab" id="gv-a11y-fab" href="../accessibility.html" aria-label="Accessibility"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm8.5 5.6-5.5 1.1v4.1l2.4 7.4a1 1 0 0 1-1.9.6L13.3 15h-2.6l-2.2 5.8a1 1 0 0 1-1.9-.6l2.4-7.4V8.7L3.5 7.6a1 1 0 1 1 .4-2l6.2 1.2h3.8l6.2-1.2a1 1 0 1 1 .4 2z"/></svg></a>
+<script src="../a11y.js" defer></script>
+</body>
+</html>

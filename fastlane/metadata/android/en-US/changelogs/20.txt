@@ -1,0 +1,1 @@
+New installs now get seven days of the complete app, then a one-time unlock keeps it. Existing users are unaffected and keep everything free, and that status now survives a new phone through Android backup. On F-Droid the app remains free and complete.

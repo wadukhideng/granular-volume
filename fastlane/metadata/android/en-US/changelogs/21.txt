@@ -1,0 +1,1 @@
+The dial gains an info button. It opens a sheet showing where your access stands, a way to buy or support the app at any time, and the Terms, Privacy Policy and open source licences. Nothing about the volume control itself has changed.

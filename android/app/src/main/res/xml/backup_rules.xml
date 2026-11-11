@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Android 11 and below (fullBackupContent).
+
+  Exactly one file is backed up: gv_entitlement.xml, which holds the trial start date, the clock
+  high-water mark and the grandfather verdict. Everything else the app stores, the dial position,
+  overlay coordinates, tile and tooltip state, is left out, so the backup carries entitlement and
+  nothing about how the person uses the app.
+
+  The exclusion is implicit and must stay that way: once an <include> is present, anything not
+  named is already excluded, and adding an explicit <exclude> for a path outside the include set
+  is a lint error rather than extra safety.
+-->
+<full-backup-content>
+    <include domain="sharedpref" path="gv_entitlement.xml" />
+</full-backup-content>

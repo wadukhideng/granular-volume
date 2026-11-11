@@ -1,0 +1,1 @@
+Final polish before release. Your saved volume level now survives a locked period untouched, so paying brings every step back exactly where you left it. The info sheet tells each build the truth about itself, including the F-Droid build, which is free and complete.

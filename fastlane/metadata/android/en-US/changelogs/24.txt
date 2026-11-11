@@ -1,0 +1,1 @@
+Small words, said at the right moments. The setup screen now mentions the free week while you are already reading it, so the trial can never come as a surprise later. The final-day notice says "within 24 hours" instead of "tomorrow", which was not always true. Nothing else moved.

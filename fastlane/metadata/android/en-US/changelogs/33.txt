@@ -1,0 +1,5 @@
+This F-Droid build stays free and complete: every step, mute and the whole range, with nothing to buy.
+
+New: the dial speaks its level to screen readers, text and buttons meet the contrast standard, and the main screen now says what the app does. On a regular phone call the quiet steps show dimmed: Android runs no audio effects on call audio.
+
+On Google Play, 1.5.0 adds a seven-day trial and a one-time key. None of that applies to this build.

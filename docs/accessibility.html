@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accessibility Statement | Quiet Dial</title>
+<meta name="description" content="How accessible granularvolume.com is against WCAG 2.1 level AA: what conforms, what does not, and how to reach a person who will fix it.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://granularvolume.com/accessibility.html">
+<meta property="og:url" content="https://granularvolume.com/accessibility.html">
+<meta property="og:title" content="Accessibility Statement | Quiet Dial">
+<meta property="og:description" content="What conforms, what does not, and how to reach a person who will fix it or send you the content another way.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://granularvolume.com/img/og/home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://granularvolume.com/img/og/home.png">
+<link rel="icon" href="img/icon.png">
+<style>
+  :root{
+    --bg0:#0a0e1d; --bg1:#121833; --card:#161232; --accent:#5046E5; --accent2:#22d3ee;
+    --txt:#f4f6ff; --muted:#9aa3c7; --line:rgba(255,255,255,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Segoe UI",system-ui,sans-serif;color:var(--txt);
+    background:
+      radial-gradient(80% 50% at 75% 0%, #232a55 0%, rgba(35,42,85,0) 60%),
+      linear-gradient(180deg,#121833 0%, #0a0e1d 40%);
+    line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  a{color:var(--accent2);}
+  header.top{padding:56px 0 8px;}
+  .crumb{font-size:14px;color:var(--muted);margin-bottom:22px;}
+  .crumb a{color:var(--muted);text-decoration:none;}
+  .crumb a:hover{color:var(--accent2);}
+  h1{font-size:clamp(30px,5.5vw,44px);font-weight:900;letter-spacing:-.7px;line-height:1.12;margin-bottom:16px;}
+  .dek{color:var(--muted);font-size:19px;max-width:640px;}
+  .meta{color:var(--muted);font-size:14px;margin-top:18px;padding-bottom:36px;border-bottom:1px solid var(--line);}
+  article{padding:36px 0;}
+  article h2{font-size:24px;font-weight:800;margin:40px 0 14px;letter-spacing:-.2px;}
+  article h3{font-size:18px;font-weight:700;margin:26px 0 10px;}
+  article p{margin-bottom:16px;font-size:17px;color:#e3e5f7;}
+  article ul{margin:0 0 16px 22px;font-size:17px;color:#e3e5f7;}
+  article li{margin-bottom:8px;}
+  .lead-p{font-size:18px;color:var(--txt);}
+  .callout{background:linear-gradient(145deg, rgba(108,99,255,.14), rgba(34,211,238,.08));
+    border:1px solid rgba(108,99,255,.35);border-radius:18px;padding:28px 30px;margin:36px 0;}
+  .callout h2{margin-top:0;}
+  .kv{list-style:none;margin:0;padding:0;}
+  .kv li{margin-bottom:10px;font-size:17px;color:#e3e5f7;}
+  .kv b{color:var(--txt);}
+  .he{direction:rtl;text-align:right;border-top:1px solid var(--line);margin-top:48px;padding-top:8px;}
+  .he h2, .he h3, .he p, .he li{direction:rtl;text-align:right;}
+  .he ul{margin:0 22px 16px 0;}
+  footer{padding:48px 0 72px;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid var(--line);margin-top:24px;}
+  footer a{color:var(--accent2);text-decoration:none;}
+
+  /* Keyboard accessibility. Nothing here changes the page for mouse users. */
+  .skip-link{position:absolute;left:-9999px;top:0;z-index:999;padding:12px 20px;
+    background:var(--accent2);color:var(--bg0);font-weight:700;text-decoration:none;
+    border-radius:0 0 10px 0;}
+  .skip-link:focus{left:0;}
+  :focus-visible{outline:3px solid var(--accent2);outline-offset:3px;border-radius:4px;}
+  main:focus{outline:none;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{transition:none !important;animation:none !important;}
+  }
+  /*GV-POLISH-NAV*/
+  .gv-nav{position:sticky;top:0;z-index:900;background:rgba(10,14,29,.86);-webkit-backdrop-filter:saturate(140%) blur(10px);
+    backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid rgba(255,255,255,.08);}
+  .gv-nav-in{max-width:1080px;margin:0 auto;padding:0 20px;height:60px;display:flex;align-items:center;gap:20px;}
+  .gv-brand{display:flex;align-items:center;gap:10px;color:#f4f6ff;text-decoration:none;font-weight:800;font-size:17px;margin-right:auto;}
+  .gv-brand img{width:30px;height:30px;border-radius:8px;display:block;}
+  .gv-nav-in>a.gv-link{color:#c7cbec;text-decoration:none;font-size:15px;font-weight:600;padding:8px 4px;}
+  .gv-nav-in>a.gv-link:hover{color:#22d3ee;}
+  .gv-play{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:999px;
+    background:#5046E5;color:#fff !important;text-decoration:none;font-weight:700;font-size:15px;white-space:nowrap;}
+  .gv-play:hover{background:#5B52F0;}
+  @media (max-width:520px){.gv-nav-in{gap:12px;padding:0 14px;}.gv-nav-in>a.gv-link{font-size:14px;padding:8px 2px;}
+    .gv-brand span{display:none;}.gv-play{padding:0 13px;font-size:14px;}}
+  [id]{scroll-margin-top:76px;}
+  @media print{.gv-nav{display:none;}}
+/*GV-POLISH-NAV-END*/
+  /*GV-POLISH-TM*/
+  .gv-tm{display:block;max-width:640px;margin:14px auto 0;font-size:12.5px;line-height:1.5;color:var(--muted,#9aa3c7);}
+/*GV-POLISH-TM-END*/
+</style>
+<script src="/src.js"></script>
+<script data-goatcounter="https://granularvolume.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<style id="gv-a11y-style">
+  /* Accessibility button and panel, self-hosted (a11y.js). No third-party code, no cookies. */
+  .gv-a11y-fab{position:fixed;left:16px;bottom:16px;z-index:1000;width:52px;height:52px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;background:#5046E5;color:#fff;border:2px solid #fff;
+    box-shadow:0 6px 18px rgba(0,0,0,.45);cursor:pointer;padding:0;text-decoration:none;}
+  .gv-a11y-fab svg{width:30px;height:30px;fill:currentColor;}
+  @media (max-width:640px){.gv-a11y-fab{width:44px;height:44px;left:10px;bottom:10px;}.gv-a11y-fab svg{width:25px;height:25px;}.gv-a11y-panel{bottom:64px;}body{padding-bottom:64px;}}
+  .gv-a11y-fab:focus-visible,.gv-a11y-btn:focus-visible,.gv-a11y-link:focus-visible{outline:3px solid #22d3ee;outline-offset:3px;}
+  .gv-a11y-panel{position:fixed;left:16px;bottom:78px;z-index:1000;width:min(300px,calc(100vw - 32px));
+    max-height:calc(100vh - 100px);overflow:auto;background:#161232;color:#f4f6ff;border:1px solid rgba(255,255,255,.35);
+    border-radius:14px;padding:14px;box-shadow:0 12px 32px rgba(0,0,0,.55);font:16px/1.4 "Segoe UI",system-ui,sans-serif;text-align:left;}
+  .gv-a11y-title{font-weight:800;font-size:17px;margin:0 0 10px;}
+  .gv-a11y-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+  .gv-a11y-label{flex:1;}
+  .gv-a11y-value{min-width:46px;text-align:center;}
+  .gv-a11y-btn{display:block;width:100%;min-height:44px;margin:0 0 8px;padding:8px 12px;border-radius:10px;
+    border:1px solid rgba(255,255,255,.35);background:#232a55;color:#f4f6ff;font:inherit;text-align:left;cursor:pointer;}
+  .gv-a11y-step{width:52px;margin:0;text-align:center;font-weight:700;}
+  .gv-a11y-btn[aria-pressed="true"]{background:#5046E5;border-color:#fff;}
+  .gv-a11y-btn[aria-pressed="true"]::after{content:" \2713";}
+  .gv-a11y-btn:disabled{opacity:.45;cursor:default;}
+  .gv-a11y-link{display:block;margin:4px 0 10px;color:#22d3ee;}
+  .gv-a11y-close{margin-bottom:0;}
+  html.gv-hc body,html.gv-hc body *:not(img):not(svg):not(path){background:#000 !important;
+    border-color:#fff !important;text-shadow:none !important;box-shadow:none !important;}
+  html.gv-hc body,html.gv-hc body *{color:#fff !important;}
+  html.gv-hc body a,html.gv-hc body a *{color:#ff0 !important;}
+  html.gv-hc .gv-a11y-btn[aria-pressed="true"]{outline:3px solid #ff0;}
+  html.gv-ul a{text-decoration:underline !important;}
+  html.gv-rf body,html.gv-rf body *{font-family:Arial,Helvetica,sans-serif !important;letter-spacing:.02em;word-spacing:.06em;}
+  @media print{.gv-a11y{display:none !important;}}
+</style>
+<script type="application/ld+json" data-gv="crumbs">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Quiet Dial", "item": "https://granularvolume.com/"}, {"@type": "ListItem", "position": 2, "name": "Accessibility Statement", "item": "https://granularvolume.com/accessibility.html"}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the main content</a><!--GV-POLISH-NAV--><nav class="gv-nav" aria-label="Site"><div class="gv-nav-in"><a class="gv-brand" href="/" aria-label="Quiet Dial home"><img src="/img/icon-64.webp" width="30" height="30" alt=""><span>Quiet Dial</span></a><a class="gv-link" href="/guide/">Guides</a><a class="gv-link" href="/help.html">Help</a><a class="gv-play" href="https://play.google.com/store/apps/details?id=granularvolume.com&amp;referrer=utm_source%3Dsite%26utm_medium%3Dnav%26utm_campaign%3Daccessibility" data-goatcounter-click="play-nav-accessibility"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg>Google Play</a></div></nav><!--GV-POLISH-NAV-END-->
+
+<div class="wrap">
+
+  <header class="top">
+    <div class="crumb"><a href="./">Quiet Dial</a> / Accessibility</div>
+    <h1>Accessibility Statement</h1>
+    <p class="dek">This app exists for people who find ordinary volume too loud. A website about it should not be hard to use. Here is exactly where this one stands, including the parts that are not finished.</p>
+    <p class="meta">Applies to <b>granularvolume.com</b> and to the privacy and terms pages at <b>rzuss.github.io/granular-volume-privacy</b> &middot; Published September 7, 2026 &middot; Last reviewed October 24, 2026</p>
+  </header>
+
+<main id="main" tabindex="-1">
+  <article>
+
+    <p class="lead-p">Quiet Dial is made by one developer. That is not an excuse for an inaccessible site, but it does shape how this statement is written: everything below was tested rather than assumed, and where something has not been tested it says so.</p>
+
+    <h2>The standard we aim at</h2>
+    <p>This website aims to meet <b>WCAG 2.1 level AA</b>, the conformance level referenced by Israeli Standard 5568 and by the European Accessibility Act.</p>
+    <p><b>Conformance status: partially conformant.</b> Partially conformant means most of the standard is met and some parts are not yet. We are not claiming full conformance, because that claim has not been earned by a formal audit.</p>
+
+    <h2>What has been done, and verified</h2>
+    <p>Checked on September 7, 2026, page by page, across all pages of this site:</p>
+    <ul>
+      <li>Every image carries a text alternative.</li>
+      <li>Body text sits at a contrast ratio of about 17.8:1 against its background, and secondary text at about 7.7:1. Both exceed the AA requirement of 4.5:1, and both meet AAA.</li>
+      <li><b>Re-measured on September 12, 2026:</b> the label on the main call-to-action button reaches 6.3:1 at one end of its gradient and 5.4:1 at the other. An earlier version of that button sat below the AA threshold for its text size; the colour was darkened and the shortcoming is gone, not merely disclosed.</li>
+      <li>Every page declares its language, including the German, Spanish, French, Italian and Portuguese pages, so a screen reader pronounces them correctly.</li>
+      <li>Headings run in order, with a single first-level heading per page, so a screen reader can be used to navigate by structure.</li>
+      <li>Every page has a "skip to the main content" link as its first keyboard stop, in the language of that page.</li>
+      <li>Every page has a main landmark, so assistive technology can jump straight to the content.</li>
+      <li>Keyboard focus is always visible, as a high-contrast outline around whatever is focused.</li>
+      <li>The site is plain HTML and CSS. It works without JavaScript, it reflows to any window size, and text can be enlarged with the browser's own zoom without content being lost.</li>
+      <li><b>Measured on September 12, 2026, at a 320 pixel viewport:</b> the page reflows with no sideways scrolling, text at double size loses nothing, and the spacing overrides the standard asks for (line height, letter, word and paragraph spacing) clip no text anywhere. Those are the reflow, resize-text and text-spacing requirements, tested rather than assumed.</li>
+      <li>Nothing on the site moves, flashes, plays automatically or times out.</li>
+      <li><b>Added on September 14, 2026:</b> an accessibility button on every page of granularvolume.com, at the bottom left. It opens a small panel that can enlarge the page content, switch to high contrast, underline every link and change to a plainer font, and it links to this statement. It is part of this site, not a third-party plugin: it loads nothing from anyone else, sets no cookie, and remembers your choices only in the open browser tab, until you close it. Without JavaScript it is a plain link to this statement. It is an aid, and it does not replace the site itself meeting the standard, which is what the rest of this page is about.</li>
+      <li><b>Added on October 23, 2026:</b> a navigation bar at the top of every page (the site name and a Google Play link; the English pages also link to Guides and Help, which exist in English only), which comes after the skip link in keyboard order; comparison tables that become one card per row on narrow screens, with each value labelled by its column heading; and on phones and tablets the accessibility button slides aside while the page scrolls down, and comes back on any scroll up, near the top or the end of the page, and whenever it has keyboard focus. With reduced motion switched on in the system, it moves without animation.</li>
+      <li><b>Added and measured on October 24, 2026:</b> a page listing every guide, linked from the navigation bar and from each guide's breadcrumb; the site name in the navigation bar now has a spoken name on phones, where its text is hidden; wide tables and the row of screenshots can be reached and scrolled with the keyboard; a short review under the main button on the home page; and a trademark line in every footer. Contrast of the new text, calculated from the site's own colour values, is at least 5.1:1 (the review's byline, the lowest) and 7.0:1 or more for the footer line, the guide list and the breadcrumbs, all above the AA requirement of 4.5:1.</li>
+    </ul>
+
+    <h2>Browsers and assistive technology</h2>
+    <p>The site is plain HTML and CSS with no framework, so it depends on nothing exotic. It is expected to work in the current versions of Chrome, Firefox, Safari and Edge, on desktop and on Android and iOS, and it respects the operating system's reduced-motion setting.</p>
+    <ul>
+      <li><b>Tested on September 7, 2026:</b> keyboard-only navigation in Chrome on Windows, including the skip link, focus order and focus visibility, on every page.</li>
+      <li><b>Tested on September 12, 2026:</b> reflow at a 320 pixel viewport, text at 200%, and the standard's text-spacing overrides, on the home page. The accessibility tree every screen reader reads from was inspected on the same day: thirty keyboard stops, tab order matching the reading order, no control without a name, and no two links sharing a name while leading to different pages.</li>
+      <li><b>Not yet tested:</b> a full pass with NVDA, JAWS, VoiceOver or TalkBack. The structure those tools rely on is in place and has been inspected, but that is not the same as having run them.</li>
+    </ul>
+
+    <h2>Known limitations, stated plainly</h2>
+    <p>These are the parts we know are not finished. If one of them stands between you and something you need, write to us and we will send you that content in a form that works for you.</p>
+    <ul>
+      <li><b>No formal audit.</b> The checks above were done by the developer, not by an independent accessibility auditor, and not with a full assistive-technology test matrix.</li>
+      <li><b>Screen readers have not been tested end to end.</b> The structural work that screen readers rely on is in place, but no full pass has been done with NVDA, JAWS or VoiceOver.</li>
+      <li><b>Videos on the site are embedded from YouTube</b> and are used as illustration. Captions on them are provided by YouTube rather than authored by us, and no audio description track exists. Nothing on this site depends on a video to be understood.</li>
+      <li><b>Pages in German, Spanish and French</b> received the same structural work as the English pages, but their text has not been reviewed by a native speaker for plain-language clarity.</li>
+    </ul>
+
+    <h2>About the app itself</h2>
+    <p>This statement covers the website. The Android app is a separate piece of software, and honesty is worth more here than a reassuring sentence:</p>
+    <ul>
+      <li>The app's on-screen controls carry spoken labels for TalkBack, including the close button, the information button, the mute button, the louder control and each volume step.</li>
+      <li>From version 1.5.0 the app also speaks the level itself. Changing the volume announces the new value, so the app's main action no longer depends on seeing the screen, and the two text links on the upgrade sheet are announced as buttons rather than as plain text.</li>
+      <li><b>The app has not been formally audited for accessibility, and it has not been fully tested with TalkBack in real use.</b> We are not claiming it is accessible.</li>
+      <li>If you use a screen reader or a switch device and the app does not work for you, please tell us. That is a bug report we want, and it will be treated as one.</li>
+    </ul>
+
+    <div class="callout">
+      <h2>Found something that does not work?</h2>
+      <p>Tell us and we will fix it, or get you the content another way in the meantime. Say what page you were on, what you were trying to do, and what happened. If you can, mention the browser and any assistive technology you use, because it makes the problem far quicker to reproduce.</p>
+      <ul class="kv">
+        <li><b>Email:</b> <a href="mailto:support@granularvolume.com">support@granularvolume.com</a></li>
+        <li><b>Responsible person:</b> Rotem Zussman, developer and accessibility contact for this site.</li>
+        <li><b>We will acknowledge your message within 10 business days</b> and tell you what we intend to do about it and by when.</li>
+        <li><b>If you need content in another form</b> while a problem is being fixed, ask, and we will send it as plain text or in whatever format suits you.</li>
+      </ul>
+      <p>Email is the accessible channel for everything here. There is no phone queue, no form to fight with, and no account to create.</p>
+    </div>
+
+    <h2>How this statement is kept honest</h2>
+    <p>It was prepared on September 7, 2026 after an actual review of this site, not from a template, revised on September 12, 2026 after a second round of measurement, on September 14, 2026 when the accessibility button was added, on October 23, 2026 when the navigation bar and the card layout for tables were added, and on October 24, 2026 after the contrast of the new elements was measured. It is reviewed when the site changes materially and at least once a year. Every page added to this site is expected to carry the same skip link, main landmark and visible focus indicator described above.</p>
+    <p>If we ever claim full conformance here, it will be because an audit was done and can be pointed at.</p>
+
+    <div class="he" lang="he" dir="rtl">
+      <h2>הצהרת נגישות</h2>
+      <p>אתר זה, granularvolume.com, שואף לעמוד בהנחיות <b>WCAG 2.1 ברמה AA</b>, שהן הרמה שאליה מפנה התקן הישראלי ת"י 5568.</p>
+      <p><b>מצב ההתאמה: התאמה חלקית.</b> חלק ניכר מהדרישות מתקיים וחלק עדיין לא. איננו טוענים להתאמה מלאה, משום שלא בוצע ביקורת נגישות פורמלית.</p>
+      <h3>מה נבדק ותוקן, נכון ל־7 בספטמבר 2026</h3>
+      <ul>
+        <li>לכל תמונה יש טקסט חלופי.</li>
+        <li>ניגודיות הטקסט הראשי היא כ־17.8:1 והמשני כ־7.7:1, מעל הנדרש ברמה AA.</li>
+        <li>נמדד מחדש ב־12 בספטמבר 2026: תווית כפתור הפעולה הראשי מגיעה ל־6.3:1 ול־5.4:1 בשני קצות המעבר. בגרסה קודמת הכפתור היה מתחת לסף, הצבע הוכהה והליקוי תוקן.</li>
+        <li>נמדד ב־12 בספטמבר 2026 ברוחב 320 פיקסל: הדף נערך מחדש ללא גלילה לרוחב, טקסט בגודל כפול אינו מאבד תוכן, ועקיפות הריווח שהתקן דורש אינן חותכות טקסט באף מקום.</li>
+        <li>בכל דף מוגדרת שפת הדף, כולל הדפים בגרמנית, ספרדית, צרפתית, איטלקית ופורטוגזית.</li>
+        <li>מבנה הכותרות תקין והיררכי, וניתן לנווט לפיו בקורא מסך.</li>
+        <li>בכל דף קיים קישור דילוג לתוכן הראשי, והוא תחנת המקלדת הראשונה.</li>
+        <li>בכל דף קיים אזור תוכן ראשי מסומן, וסימון פוקוס נראה לעין בניווט מקלדת.</li>
+        <li>האתר בנוי HTML ו־CSS בלבד, עובד ללא JavaScript, ומאפשר הגדלת טקסט בדפדפן ללא אובדן תוכן.</li>
+        <li>אין באתר תוכן נע, מהבהב, מתנגן אוטומטית או מוגבל בזמן.</li>
+        <li>נוסף ב־14 בספטמבר 2026: כפתור נגישות בכל דף באתר granularvolume.com, בפינה השמאלית התחתונה. הוא פותח חלונית שמאפשרת להגדיל את תוכן הדף, לעבור לניגודיות גבוהה, להוסיף קו תחתון לכל קישור ולעבור לגופן פשוט יותר, ומקשר להצהרה זו. הכפתור הוא חלק מהאתר ואינו תוסף של צד שלישי: הוא אינו טוען דבר מגורם אחר, אינו שומר עוגיות, וזוכר את הבחירות רק בלשונית הדפדפן הפתוחה, עד לסגירתה. ללא JavaScript הוא קישור רגיל להצהרה. הכפתור הוא עזר, ואינו מחליף את עמידת האתר עצמו בתקן.</li>
+        <li>נוסף ב־23 באוקטובר 2026: סרגל ניווט בראש כל דף (שם האתר וקישור ל־Google Play; בדפים באנגלית גם מדריכים ועזרה, שקיימים באנגלית בלבד), שבא אחרי קישור הדילוג בסדר המקלדת; טבלאות השוואה שהופכות לכרטיס אחד לכל שורה במסכים צרים, וכל ערך בהן מסומן בכותרת העמודה שלו; ובטלפון ובטאבלט כפתור הנגישות זז הצידה בזמן גלילה למטה וחוזר בכל גלילה למעלה, בראש הדף ובסופו, וכשהוא מקבל פוקוס מהמקלדת. כשהפחתת התנועה מופעלת במערכת, הוא זז ללא אנימציה.</li>
+        <li>נוסף ונמדד ב־24 באוקטובר 2026: דף שמרכז את כל המדריכים, עם קישור מסרגל הניווט ומפירורי הלחם בכל מדריך; לשם האתר בסרגל הניווט יש עכשיו שם מוקרא גם בטלפון, שבו הטקסט מוסתר; טבלאות רחבות ושורת צילומי המסך נגישות וניתנות לגלילה מהמקלדת; ביקורת קצרה מתחת לכפתור הראשי בדף הבית; ושורת סימני מסחר בתחתית כל דף. הניגודיות של הטקסט החדש, כפי שחושבה מערכי הצבע של האתר, היא לפחות 5.1:1 (שורת שם הכותב בביקורת, הנמוכה ביותר) ו־7.0:1 ומעלה בשורת התחתית, ברשימת המדריכים ובפירורי הלחם, כולן מעל דרישת AA של 4.5:1.</li>
+      </ul>
+      <h3>דפדפנים וטכנולוגיה מסייעת</h3>
+      <p>האתר בנוי HTML ו־CSS בלבד ואמור לעבוד בגרסאות העדכניות של Chrome, Firefox, Safari ו־Edge, במחשב ובטלפון, ומכבד את הגדרת הפחתת התנועה של מערכת ההפעלה. נבדק ב־7 בספטמבר 2026 בניווט מקלדת בלבד ב־Chrome בכל הדפים, וב־12 בספטמבר 2026 נבדקו גם עריכה מחדש ברוחב 320 פיקסל, טקסט בגודל 200%, ועץ הנגישות שקוראי המסך מסתמכים עליו. טרם נבדק במלואו עם קוראי מסך (NVDA, JAWS, VoiceOver, TalkBack).</p>
+      <h3>מגבלות ידועות</h3>
+      <ul>
+        <li>לא בוצעה ביקורת נגישות על ידי גורם חיצוני.</li>
+        <li>לא בוצעה בדיקה מלאה מקצה לקצה עם קוראי מסך.</li>
+        <li>סרטונים באתר מוטמעים מיוטיוב וכתוביותיהם אינן מופקות על ידינו. אין תוכן באתר שהבנתו תלויה בסרטון.</li>
+        <li>מגרסה 1.5.0 האפליקציה גם מקריאה את עוצמת הקול עצמה בעת שינוי, ושני קישורי הטקסט במסך השדרוג מוכרזים ככפתורים.</li>
+        <li>ההצהרה מתייחסת לאתר. <b>אפליקציית האנדרואיד לא נבדקה בביקורת נגישות ולא נבדקה במלואה עם TalkBack</b>, אף שפקדיה נושאים תוויות מדוברות. איננו טוענים שהאפליקציה נגישה.</li>
+      </ul>
+      <h3>פנייה בנושא נגישות</h3>
+      <p>נתקלתם בבעיית נגישות באתר או באפליקציה? נשמח לשמוע ונתקן. אנא ציינו באיזה דף הייתם, מה ניסיתם לעשות ומה קרה, ואם אפשר גם באיזה דפדפן ובאיזו טכנולוגיה מסייעת.</p>
+      <ul class="kv">
+        <li><b>דואר אלקטרוני:</b> <a href="mailto:support@granularvolume.com">support@granularvolume.com</a></li>
+        <li><b>אחראי הנגישות:</b> רותם זוסמן, מפתח האתר.</li>
+        <li><b>נשיב לפנייתכם בתוך 10 ימי עסקים</b> ונעדכן מה בכוונתנו לעשות ובאיזה לוח זמנים.</li>
+        <li><b>אם דרוש לכם תוכן בפורמט חלופי</b> עד לתיקון, בקשו ונשלח אותו כטקסט פשוט או בכל פורמט שנוח לכם.</li>
+      </ul>
+      <p>הצהרה זו נכתבה ב־7 בספטמבר 2026 לאחר בדיקה בפועל של האתר, עודכנה ב־12 בספטמבר 2026 לאחר סבב מדידה נוסף ב־14 בספטמבר 2026 עם הוספת כפתור הנגישות ב־23 באוקטובר 2026 עם הוספת סרגל הניווט ותצוגת הכרטיסים לטבלאות וב־24 באוקטובר 2026 לאחר מדידת הניגודיות של הרכיבים החדשים, ומתעדכנת בכל שינוי מהותי ולפחות אחת לשנה.</p>
+    </div>
+
+  </article>
+</main>
+</div>
+<footer>
+  <div class="wrap">
+    Part of <a href="./">Quiet Dial</a> by Granular Volume, open source under the
+    <a href="https://github.com/Rzuss/granular-volume/blob/main/LICENSE">GNU GPL-3.0</a>.
+    <a href="https://rzuss.github.io/granular-volume-privacy/">Privacy Policy</a> &middot;
+    <a href="https://rzuss.github.io/granular-volume-privacy/terms-of-use.html">Terms of Use</a> &middot; <a href="https://rzuss.github.io/granular-volume-privacy/terms-of-use.html#refunds">Refunds</a> &middot; <a href="https://rzuss.github.io/granular-volume-privacy/#controller">Legal notice / Impressum</a> &middot;
+    <a href="accessibility.html">Accessibility</a>.
+    <br>
+    This site counts visits with GoatCounter, without cookies and without storing IP addresses or other personal data.
+    <!--GV-POLISH-TM--><span class="gv-tm">Android and Google Play are trademarks of Google LLC. Other product and brand names mentioned are trademarks of their respective owners. Quiet Dial is an independent app, not affiliated with or endorsed by Google or any device maker.</span><!--GV-POLISH-TM-END-->
+  </div>
+</footer>
+<a class="gv-a11y gv-a11y-fab" id="gv-a11y-fab" href="accessibility.html" aria-label="Accessibility"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm8.5 5.6-5.5 1.1v4.1l2.4 7.4a1 1 0 0 1-1.9.6L13.3 15h-2.6l-2.2 5.8a1 1 0 0 1-1.9-.6l2.4-7.4V8.7L3.5 7.6a1 1 0 1 1 .4-2l6.2 1.2h3.8l6.2-1.2a1 1 0 1 1 .4 2z"/></svg></a>
+<script src="a11y.js" defer></script>
+</body>
+</html>
