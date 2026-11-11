@@ -259,17 +259,21 @@ class VolumeControlService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         when (intent?.action) {
-            ACTION_STOP -> { 
-                Log.i(tag, "Stop action received from notification")
-                stopRequestedByUser = true 
-                // Hapus notifikasi dari status bar secara paksa
+            ACTION_STOP -> {
+                Log.i(tag, "Stop action received")
+                stopRequestedByUser = true
+                ControlLive.running = false // Matikan flag agar coroutine berhenti update
+                serviceScope.cancel()       // Batalkan semua job background
+                
+                // Hapus notifikasi secara brutal (Anti-Nyangkut)
+                getSystemService(NotificationManager::class.java).cancel(NOTIFICATION_ID)
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
                     stopForeground(android.app.Service.STOP_FOREGROUND_REMOVE)
                 } else {
                     @Suppress("DEPRECATION")
                     stopForeground(true)
                 }
-                stopSelf() 
+                stopSelf()
             }
             ACTION_STEP_UP -> handleStep(+1)
             ACTION_STEP_DOWN -> handleStep(-1)
@@ -437,6 +441,7 @@ class VolumeControlService : Service() {
         audioController.release()
         serviceScope.cancel()
         if (stopRequestedByUser) Prefs.setServiceWasRunning(applicationContext, false)
+        getSystemService(NotificationManager::class.java).cancel(NOTIFICATION_ID)
         super.onDestroy()
     }
 
