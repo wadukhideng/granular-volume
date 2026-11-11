@@ -161,7 +161,18 @@ class VolumeControlService : Service() {
                 val taken = !hasControl
                 if (taken != ControlLive.effectTaken) {
                     ControlLive.effectTaken = taken
-                    if (taken) Toast.makeText(applicationContext, R.string.gv_effect_taken, Toast.LENGTH_LONG).show()
+                    if (taken) {
+                        Toast.makeText(applicationContext, R.string.gv_effect_taken, Toast.LENGTH_LONG).show()
+                        // Coba pasang ulang efek setelah jeda singkat
+                        mainHandler.postDelayed({
+                            if (ControlLive.running) {
+                                Log.i("GranularVolume", "Mencoba reattach efek setelah diambil alih...")
+                                serviceScope.launch(Dispatchers.Default) {
+                                    audioController.reattach()
+                                }
+                            }
+                        }, 1000)
+                    }
                     if (ControlLive.running) updateNotification(audioController.attenuationDb.value)
                 }
             }
