@@ -518,7 +518,7 @@ class VolumeControlService : Service() {
         // Ganti Ikon Mute secara dinamis
         largeView.setImageViewResource(
             R.id.btn_mute,
-            if (coordinator.isMuted) R.drawable.ic_volume_up else R.drawable.ic_volume_off
+            if (coordinator.isMuted) R.drawable.ic_volume_off else R.drawable.ic_volume_up
         )
 
         // Pasang aksi klik ke tombol
