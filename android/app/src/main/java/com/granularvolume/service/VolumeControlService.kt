@@ -431,7 +431,7 @@ class VolumeControlService : Service() {
             this, 4, Intent(this, VolumeControlService::class.java).apply { action = ACTION_TOGGLE_MUTE },
             PendingIntent.FLAG_IMMUTABLE)
         val tapIntent = PendingIntent.getActivity(
-            this, 1, Intent(this, InfoSheetActivity::class.java), PendingIntent.FLAG_IMMUTABLE)
+            this, 1, Intent(this, com.granularvolume.MainActivity::class.java), PendingIntent.FLAG_IMMUTABLE)
 
         val display = lockDisplay()
         val level = if (dB == 0f) getString(R.string.gv_notif_on) else "%.0f dB".format(dB)
@@ -442,26 +442,51 @@ class VolumeControlService : Service() {
         }
         val text = when {
             ControlLive.effectTaken -> getString(R.string.gv_effect_taken)
-            coordinator.isMuted -> getString(R.string.gv_label_muted)
+            coordinator.isMuted -> "Volume dibisukan"
             else -> dbText
         }
+        
+        // Warna dinamis: Merah (Mute), Amber (Locked), Biru (Normal)
+        val color = when {
+            coordinator.isMuted -> 0xFFDC2626.toInt()
+            display != FullRangeCoordinator.LockDisplay.OPEN -> 0xFFF59E0B.toInt()
+            else -> 0xFF3B82F6.toInt()
+        }
+
+        // RemoteViews untuk Compact
+        val smallView = android.widget.RemoteViews(packageName, R.layout.notification_small)
+        smallView.setTextViewText(R.id.notif_title_small, getString(R.string.app_name))
+        smallView.setTextViewText(R.id.notif_text_small, text)
+
+        // RemoteViews untuk Expanded
+        val largeView = android.widget.RemoteViews(packageName, R.layout.notification_large)
+        largeView.setTextViewText(R.id.notif_title, getString(R.string.app_name))
+        largeView.setTextViewText(R.id.notif_text, text)
+        
+        // Progress Bar Visual (0-100)
+        val percent = if (coordinator.isMuted) 0 else (((dB + 30f) / 30f * 100f).coerceIn(0f, 100f)).toInt()
+        largeView.setProgressBar(R.id.notif_progress, 100, percent, false)
+        largeView.setInt(R.id.notif_progress, "setProgressTintList", android.content.res.ColorStateList.valueOf(color))
+
+        // Teks Tombol Mute
+        largeView.setTextViewText(R.id.btn_mute, if (coordinator.isMuted) "Suara" else "Bisukan")
+
+        // Pasang aksi klik ke tombol
+        largeView.setOnClickPendingIntent(R.id.btn_down, downIntent)
+        largeView.setOnClickPendingIntent(R.id.btn_up, upIntent)
+        largeView.setOnClickPendingIntent(R.id.btn_mute, muteIntent)
+        largeView.setOnClickPendingIntent(R.id.btn_stop, stopIntent)
 
         return NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_volume_slider)
-            .setContentTitle(getString(R.string.app_name))
-            .setContentText(text)
-            .setStyle(NotificationCompat.BigTextStyle().bigText(text))
             .setContentIntent(tapIntent)
-            .addAction(R.drawable.ic_chevron_down, getString(R.string.gv_notif_step_down), downIntent)
-            .addAction(
-                R.drawable.ic_volume_off,
-                if (coordinator.isMuted) getString(R.string.gv_notif_unmute) else getString(R.string.gv_notif_mute),
-                muteIntent)
-            .addAction(R.drawable.ic_chevron_up, getString(R.string.gv_notif_step_up), upIntent)
-            .addAction(R.drawable.ic_close, getString(R.string.gv_notif_stop), stopIntent)
+            .setCustomContentView(smallView)
+            .setCustomBigContentView(largeView)
+            .setStyle(NotificationCompat.DecoratedCustomViewStyle())
             .setOngoing(true)
             .setSilent(true)
             .setOnlyAlertOnce(true)
+            .setColor(color) // Pewarnaan background notifikasi (jika didukung OS)
             .build()
     }
 

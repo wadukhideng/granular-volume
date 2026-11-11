@@ -80,7 +80,7 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             // Use the release signing config only when it was configured above.
-            signingConfig = if (hasReleaseSigning) signingConfigs.getByName("release") else null
+            signingConfig = if (hasReleaseSigning) signingConfigs.getByName("release") else signingConfigs.getByName("debug")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
