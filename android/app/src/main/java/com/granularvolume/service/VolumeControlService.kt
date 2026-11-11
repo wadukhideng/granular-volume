@@ -130,6 +130,8 @@ class VolumeControlService : Service() {
 
     @Volatile private var stopRequestedByUser = false
     private val mainHandler = Handler(Looper.getMainLooper())
+    private var stepAccumulator = 0
+    private var stepJob: kotlinx.coroutines.Job? = null
 
     override fun onCreate() {
         super.onCreate()
