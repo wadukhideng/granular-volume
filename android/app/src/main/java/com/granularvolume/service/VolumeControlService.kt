@@ -246,7 +246,18 @@ class VolumeControlService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         when (intent?.action) {
-            ACTION_STOP -> { Log.i(tag, "Stop"); stopRequestedByUser = true; stopSelf() }
+            ACTION_STOP -> { 
+                Log.i(tag, "Stop action received from notification")
+                stopRequestedByUser = true 
+                // Hapus notifikasi dari status bar secara paksa
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                    stopForeground(android.app.Service.STOP_FOREGROUND_REMOVE)
+                } else {
+                    @Suppress("DEPRECATION")
+                    stopForeground(true)
+                }
+                stopSelf() 
+            }
             ACTION_STEP_UP -> { coordinator.step(+1); updateNotification(audioController.attenuationDb.value) }
             ACTION_STEP_DOWN -> { coordinator.step(-1); updateNotification(audioController.attenuationDb.value) }
             ACTION_TOGGLE_MUTE -> { coordinator.toggleMute(); updateNotification(audioController.attenuationDb.value) }
@@ -420,18 +431,18 @@ class VolumeControlService : Service() {
     private fun buildNotification(dB: Float): Notification {
         val stopIntent = PendingIntent.getService(
             this, 0, Intent(this, VolumeControlService::class.java).apply { action = ACTION_STOP },
-            PendingIntent.FLAG_IMMUTABLE)
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
         val downIntent = PendingIntent.getService(
             this, 2, Intent(this, VolumeControlService::class.java).apply { action = ACTION_STEP_DOWN },
-            PendingIntent.FLAG_IMMUTABLE)
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
         val upIntent = PendingIntent.getService(
             this, 3, Intent(this, VolumeControlService::class.java).apply { action = ACTION_STEP_UP },
-            PendingIntent.FLAG_IMMUTABLE)
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
         val muteIntent = PendingIntent.getService(
             this, 4, Intent(this, VolumeControlService::class.java).apply { action = ACTION_TOGGLE_MUTE },
-            PendingIntent.FLAG_IMMUTABLE)
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
         val tapIntent = PendingIntent.getActivity(
-            this, 1, Intent(this, com.granularvolume.MainActivity::class.java), PendingIntent.FLAG_IMMUTABLE)
+            this, 1, Intent(this, com.granularvolume.MainActivity::class.java), PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
 
         val display = lockDisplay()
         val level = if (dB == 0f) getString(R.string.gv_notif_on) else "%.0f dB".format(dB)
