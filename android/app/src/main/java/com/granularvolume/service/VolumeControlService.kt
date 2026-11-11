@@ -258,8 +258,8 @@ class VolumeControlService : Service() {
                 }
                 stopSelf() 
             }
-            ACTION_STEP_UP -> { coordinator.step(+1); updateNotification(audioController.attenuationDb.value) }
-            ACTION_STEP_DOWN -> { coordinator.step(-1); updateNotification(audioController.attenuationDb.value) }
+            ACTION_STEP_UP -> handleStep(+1)
+            ACTION_STEP_DOWN -> handleStep(-1)
             ACTION_TOGGLE_MUTE -> { coordinator.toggleMute(); updateNotification(audioController.attenuationDb.value) }
             ACTION_KEY_INSTALLED -> onKeyArrived("activity")
             ACTION_ACCESS_CHANGED -> {
@@ -387,6 +387,25 @@ class VolumeControlService : Service() {
         if (coordinator.uiState().quietUnavailable) { Log.i(tag, "Refused step skipped: call"); return }
         Log.i(tag, "Landing on refused step (${pending}dB)")
         coordinator.applyQuiet(pending)
+    }
+
+
+    // Fungsi anti-lag: Mengumpulkan tap dan mengeksekusinya di Background Thread
+    private fun handleStep(direction: Int) {
+        stepAccumulator += direction
+        
+        // Kalau job belum jalan, jalankan di background
+        if (stepJob?.isActive != true) {
+            stepJob = serviceScope.launch(Dispatchers.Default) {
+                while (stepAccumulator != 0) {
+                    val dir = if (stepAccumulator > 0) 1 else -1
+                    stepAccumulator -= dir
+                    coordinator.step(dir)
+                }
+                // Update notifikasi HANYA sekali di akhir antrean (biar UI mulus)
+                mainHandler.post { updateNotification(audioController.attenuationDb.value) }
+            }
+        }
     }
 
     override fun onDestroy() {
