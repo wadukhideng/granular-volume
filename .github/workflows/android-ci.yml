@@ -1,34 +1,37 @@
-name: Android CI
+name: Build F-Droid APK
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ main, master ]
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - uses: actions/setup-java@v4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
-      - uses: android-actions/setup-android@v3
-
-      - name: Build
+      - name: Grant execute permission for gradlew
         working-directory: android
-        run: |
-          chmod +x ./gradlew
-          ./gradlew assembleFdroidDebug --no-daemon --stacktrace
+        run: chmod +x ./gradlew
 
-      - uses: actions/upload-artifact@v4
+      - name: Build F-Droid debug APK
+        working-directory: android
+        run: ./gradlew assembleFdroidDebug --stacktrace --no-daemon
+
+      - name: Upload APK artifact
         if: always()
+        uses: actions/upload-artifact@v4
         with:
-          name: apk
+          name: granular-volume-fdroid-debug
           path: android/app/build/outputs/apk/fdroid/debug/*.apk
+          retention-days: 30
           if-no-files-found: warn
